@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>assets</key>
+			<array>
+				<dict>
+					<key>kind</key>
+					<string>software-package</string>
+					<key>url</key>
+					<string>这里填ipa的下载地址(必填,不要求为https)</string>
+				</dict>
+				<dict>
+					<key>kind</key>
+					<string>full-size-image</string>
+					<key>needs-shine</key>
+					<false/>
+					<key>url</key>
+					<string>下载时大图的url(非必填,像素为:512x512,不要求为https)</string>
+				</dict>
+				<dict>
+					<key>kind</key>
+					<string>display-image</string>
+					<key>needs-shine</key>
+					<false/>
+					<key>url</key>
+					<string>下载时小图的url(非必填,像素为:57x57,不要求为https)</string>
+				</dict>
+			</array>
+			<key>metadata</key>
+			<dict>
+				<key>bundle-identifier</key>
+				<string>这里填项目的Bundle ldentifier(必填，必须与app内的一致)</string>
+				<key>bundle-version</key>
+				<string>这里填版本号</string>
+				<key>kind</key>
+				<string>software</string>
+				<key>subtitle</key>
+				<string>这里填副标题</string>
+				<key>title</key>
+				<string>这里填标题(一般填app名称)</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
