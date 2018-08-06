@@ -1,4 +1,4 @@
-#Charles抓包
+# Charles抓包
 
 [Charles 官网](https://www.charlesproxy.com),本文使用的是[`Charles v 4.2.6`, 资源来自网络](https://www.waitsun.com/charles-4-2-6.html)
 
@@ -49,9 +49,9 @@
 1. `菜单栏` -> `Proxy` -> `Recoding Settings` -> `Exclude` -> `Add`
 2. `Protocol` 中选择 `HTTPS`, `Host` 填写 `www.baidu.com`, 端口写`443`
     
-###搜索功能:`command + F`
+### 搜索功能:`command + F`
 
-###修改服务器返回内容:
+### 修改服务器返回内容:
 
 有些时候我们想让服务器返回一些指定的内容，方便我们调试一些特殊情况。例如列表页面为空的情况，数据异常的情况，部分耗时的网络请求超时的情况等。如果没有 `Charles`，要服务器配合构造相应的数据显得会比较麻烦。这个时候，使用 `Charles` 相关的功能就可以满足我们的需求。
 根据具体的需求，`Charles` 提供了 `Map` 功能、 `Rewrite` 功能以及 `Breakpoints` 功能，都可以达到修改服务器返回内容的目的。这三者在功能上的差异是：
@@ -64,17 +64,17 @@
 1. 在`Structure`或`Sequence`中右键`链接`选择`Compose`
 2. 修改之后点击 `Execute` 即可发送该修改后的网络请求. `Charles` 支持我们多次修改和发送该请求，这对于我们和服务器端调试接口非常方便
         
-###断点调试
+### 断点调试
 1. 确认在软件界面六边形图像中开启了`Enable Breakpoints`
 2. 在`Structure`或`Sequence`中右键`链接`选择`Breakpoints`
 3. 重新请求将会进入`Breakpoints`界面,选择`Edit Response`,再最下方选择需要修改的部位,如:`Headers`, `JSON Text`等,一般使用`JSON Text`查看返回数据较为方便
 4. 修改完后点击`Execute`
 
-###重复请求,给服务器做压力测试,
+### 重复请求,给服务器做压力测试,
 1. 在`Structure`或`Sequence`中右键`链接`选择`Repeat`或`Repeat Advanced`
 2. 如果选择了`Repeat Advanced`,在弹出的对话框中，修改`迭代(打压)次数 Iteration`以及`并发线程数 Concurrency`次数,确定之后，即可开始打压
     
-###只监听/查看特定请求
+### 只监听/查看特定请求
 1. 监听,比如这个链接是:`https://www.baidu.com`
     1. `菜单栏` -> `Proxy` -> `Recoding Settings` -> `Include` -> `Add`
     2.  `Protocol` 中选择 `HTTPS`, `Host` 填写 `www.baidu.com`, 端口写`443`
@@ -82,13 +82,13 @@
     1. 在`Structure`或`Sequence`中右键`https://www.baidu.com`选择`Focus`,那么请求将会变为`Other Hosts`,`https://www.baidu.com`两组
     2. 在主界面的中部的 `Filter` 栏中填入需要过滤出来的关键字。例如我们的服务器的地址是：`https://www.baidu.com` , 那么只需要在 Filter 栏中填入 `baidu.com` 即可
     
-###模拟慢速网络
+### 模拟慢速网络
 1. 开启慢速网络
     
     `菜单栏` -> `Proxy` -> `Throttle Setting` -> `Enable Throttling` ,可以设置 `Throttle Preset` 的类型
 2. 如果只想模拟指定网站的慢速网络，可以再勾选上图中的 `Only for selected hosts` 项，然后在对话框的下半部分设置中增加指定的 hosts 项即可。
 
 
-##文章借鉴:
+## 文章借鉴:
 
 1. [Charles 从入门到精通](http://blog.devtang.com/2015/11/14/charles-introduction/)
