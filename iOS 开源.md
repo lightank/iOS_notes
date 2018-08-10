@@ -40,9 +40,24 @@
 * [GPUImage2](https://github.com/BradLarson/GPUImage2) GPUImage 2 is a BSD-licensed Swift framework for GPU-accelerated video and image processing.
 * [Macaw](https://github.com/exyte/Macaw) Powerful and easy-to-use vector graphics Swift library with SVG support
 * [SwiftyBeaver](https://github.com/SwiftyBeaver/SwiftyBeaver) Convenient logging during development & release in Swift 2, 3 & 4
-* [Swift-30-Projects](https://github.com/soapyigu/Swift-30-Projects) 30 mini Swift Apps for self-study by 故胤道长
-* 
-
+* [Swift-30-Projects](https://github.com/soapyigu/Swift-30-Projects) 30 mini Swift Apps for self-study by [故胤道长](https://github.com/soapyigu)
+* [Bond](https://github.com/DeclarativeHub/Bond) A Swift binding framework
+* [SwipeCellKit](https://github.com/SwipeCellKit/SwipeCellKit) Swipeable UITableViewCell/UICollectionViewCell based on the stock Mail.app, implemented in Swift.
+* [Chatto](https://github.com/badoo/Chatto) A lightweight framework to build chat applications, made in Swift
+* [SwiftyUserDefaults](https://github.com/radex/SwiftyUserDefaults) Modern Swift API for NSUserDefaults
+* [SwiftOCR](https://github.com/garnele007/SwiftOCR) Fast and simple OCR library written in Swift
+* [FSPagerView](https://github.com/WenchaoD/FSPagerView) FSPagerView is an elegant Screen Slide Library. It is extremely helpful for making Banner View、Product Show、Welcome/Guide Pages、Screen/ViewController Sliders.
+* [GodEye](https://github.com/zixun/GodEye) Automaticly display Log,Crash,Network,ANR,Leak,CPU,RAM,FPS,NetFlow,Folder and etc with one line of code based on Swift. Just like God opened his eyes.
+* [DOFavoriteButton](https://github.com/okmr-d/DOFavoriteButton) Cute Animated Button written in Swift.
+* [BulletinBoard](https://github.com/alexaubry/BulletinBoard) General-purpose contextual cards for iOS
+* [SlideMenuControllerSwift](https://github.com/dekatotoro/SlideMenuControllerSwift) iOS Slide Menu View based on Google+, iQON, Feedly, Ameba iOS app. It is written in pure swift.
+* [Persei](https://github.com/Yalantis/Persei) Animated top menu for UITableView / UICollectionView / UIScrollView written in Swift 
+* [alerts-and-pickers](https://github.com/dillidon/alerts-and-pickers) Advanced usage of UIAlertController and pickers based on it: Telegram, Contacts, Location, PhotoLibrary, Country, Phone Code, Currency, Date...
+* [SideMenu](https://github.com/jonkykong/SideMenu) Simple side menu control for iOS, no code necessary! Lots of customization. Add it to your project in 5 minutes or less.
+* [EFQRCode](https://github.com/EyreFree/EFQRCode) A better way to operate quick response code in Swift. 
+* [SkyFloatingLabelTextField](https://github.com/Skyscanner/SkyFloatingLabelTextField) A beautiful and flexible text field control implementation of "Float Label Pattern". Written in Swift.
+* [circle-menu](https://github.com/Ramotion/circle-menu) CircleMenu is a simple, elegant UI menu with a circular layout and material design animations. 
+* [XLActionController](https://github.com/xmartlabs/XLActionController) Fully customizable and extensible action sheet controller written in Swift
 
 
 
@@ -63,6 +78,6 @@
 
 
 # Objective-C 开源框架
-
+* [FSCalendar](https://github.com/WenchaoD/FSCalendar) A fully customizable iOS calendar library, compatible with Objective-C and Swift
 
 
