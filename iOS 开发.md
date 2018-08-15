@@ -1,3 +1,89 @@
+# Apple
+* [Runtime](https://opensource.apple.com/source/objc4/)
+* [Apple Developer Documentation](https://developer.apple.com/documentation)
+* [Documentation Archive](https://developer.apple.com/library/archive/navigation/)
+* `iOS_Security_Guide` [中文版](https://www.apple.com/cn/business/resources/docs/iOS_Security_Guide.pdf) [英文版](https://www.apple.com/business/docs/iOS_Security_Guide.pdf)
+* [App Store Connect](https://developer.apple.com/cn/support/app-store-connect/)
+* [App Store Connect 帮助](https://help.apple.com/app-store-connect/)
+* [App Store 审核指南](https://developer.apple.com/cn/app-store/review/guidelines/)
+* [Cocoa Core Competencies](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Introduction.html#//apple_ref/doc/uid/TP40008195-CH68-DontLinkElementID_2)
+* [Coding Guidelines for Cocoa](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingMethods.html#//apple_ref/doc/uid/20001282-BCIGIJJF)
+* [Objective-C Runtime Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048)
+
+# 大牛
+* 郭曜源 [YYKit](https://GitHub.com/ibireme/YYKit)作者
+    * 博客：[一只魔法师的工坊](https://blog.ibireme.com)
+    * GitHub：[ibireme](https://GitHub.com/ibireme)
+* 王魏 喵神
+    * 博客：[OneV's Den](https://onevcat.com)
+    * GitHub: [onecat](https://GitHub.com/onevcat)
+* bang [JSPatch](https://GitHub.com/bang590/JSPatch)作者
+    * 博客：[bang's blog](http://blog.cnbang.net)
+    * GitHub: [bang590](https://GitHub.com/bang590)
+* 孙源 Sunny [UITableView-FDTemplateLayoutCell](https://GitHub.com/forkingdog/UITableView-FDTemplateLayoutCell) 作者之一
+    *  博客：[sunnyxx](http://blog.sunnyxx.com)
+    * GitHub: [sunnyxx](https://GitHub.com/sunnyxx)
+* 唐巧 [YTKNetwork](https://GitHub.com/yuantiku/YTKNetwork)作者之一
+    * 博客： [唐巧的技术博客](http://blog.devtang.com)
+    * GitHub: [tangqiaoboy](https://GitHub.com/tangqiaoboy)
+* 戴铭 滴滴出行技术专家
+    * 博客： [星光社 - 戴铭的博客](https://ming1016.GitHub.io)
+    * GitHub: [ming1016](https://GitHub.com/ming1016)
+* 念茜
+    * 博客：[程序媛念茜](https://nianxi.net)
+    * CSDN: [念茜](https://blog.csdn.net/yiyaaixuexi)
+* 刘培庆 `iOS应用逆向与安全`作者
+    * 博客：[AloneMonkey](http://www.alonemonkey.com)
+* 杨萧玉
+    * 博客：[玉令天下的博客](http://yulingtianxia.com) 
+    * GitHub: [yulingtianxia](https://GitHub.com/yulingtianxia)
+
+# 博客
+* [casatwy](https://casatwy.com)
+* [南峰子的技术博客](http://southpeak.GitHub.io)
+* [廖雪峰的官方网站](https://www.liaoxuefeng.com)
+* [刘坤的技术博客](https://blog.cnbluebox.com)
+* [Draveness's Blog](https://draveness.me/index), 代表作：[iOS开源框架源代码解析](https://GitHub.com/Draveness/analyze)
+* [李峰峰博客](http://www.imlifengfeng.com)
+* [叶孤城的iOS杂货铺](https://zhuanlan.zhihu.com/zangqilong)
+* [Ximu's Blog](http://www.ximublog.cn)
+* [破船之家](http://beyondvincent.com/archives/)
+* [冰霜之地](http://beyondvincent.com/archives/)
+* [MrPeak杂货铺](http://mrpeak.cn) [微博 愚公编程MrPeak](https://weibo.com/soapyigu?is_hot=1#_loginLayer_1533786525252)
+    
+# 著名社区、网站
+* [ObjC 中国](https://objccn.io)
+    * GitHub: [ObjC 中国](https://GitHub.com/objccn)
+    * [ObjC](https://www.objc.io)
+* [NSHipster](https://nshipster.cn) 关注被忽略的 Objective-C、Swift 和 Cocoa
+* [iOS开发指南:最全的iOS零基础开发教程](https://www.developboot.com)
+
+# 团队博客
+* [美团技术团队](https://tech.meituan.com)
+* [WeRead团队博客](http://wereadteam.GitHub.io) 微信读书的技术博客
+* [百度Hi iOS团队技术周报](http://baiduhidevios.GitHub.io)
+* [Glow 技术团队博客](http://tech.glowing.com/cn/)
+* [苹果核 天猫无线](http://pingguohe.net)
+
+# 书籍
+* Effective Objective-C 2.0：编写高质量iOS与OS X代码的52个有效方法 [京东链接](https://item.jd.com/11402853.html)
+* Objective-C高级编程 iOS与OS X多线程和内存管理 [京东链接](https://item.jd.com/11258970.html)
+* iOS核心动画高级技巧 [GitBook](https://zsisme.gitbooks.io/ios-/content/index.html) [GitHub](https://github.com/ZsIsMe/ios_core_animation_advanced_techniques)
+* [software-architecture-patterns](https://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf)
+* iOS应用逆向与安全 [京东链接](https://item.jd.com/12361729.html)
+
+# 实用文章
+* [使用 Jenkins 实现持续集成 (iOS)](https://www.pgyer.com/doc/view/jenkins_ios)
+* [iOS自动打包并发布脚本](http://liumh.com/2015/11/25/ios-auto-archive-ipa/)
+
+# Swift
+* [SwiftGG](https://swift.gg) 走心的 Swift 翻译组
+* [Swift 学习指引](http://www.swiftguide.cn)
+* [Swift 编程语言](https://www.cnswift.org) 苹果官方对 Swift 语言做的权威指南 中文翻译版
+* [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
+* [Developing-iOS-11-Apps-with-Swift](https://github.com/ApolloZhu/Developing-iOS-11-Apps-with-Swift/blob/master/tools/update/download.md) Swift 语言 iOS 11 开发 斯坦福（Stanford）CS193p 公开课 Paul Hegarty主讲 [字幕](https://github.com/ApolloZhu/Developing-iOS-11-Apps-with-Swift/tree/master/subtitles)
+
+
 # Swift 开源框架
 * [Alamofire](https://github.com/Alamofire/Alamofire) 网络请求
 * [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa)
