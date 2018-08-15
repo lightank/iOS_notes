@@ -79,5 +79,5 @@
 
 # Objective-C 开源框架
 * [FSCalendar](https://github.com/WenchaoD/FSCalendar) A fully customizable iOS calendar library, compatible with Objective-C and Swift
-
+* [Lottie for iOS, macOS](https://github.com/airbnb/lottie-ios) Airbnb开源的动画框架 [动画资源下载](https://www.lottiefiles.com)
 

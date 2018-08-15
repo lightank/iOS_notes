@@ -99,6 +99,17 @@ Vietnamese | 越南 | vi
 
 ## Tips
 * 切换语言无需在模拟器中设置，只需要在Xcode中进行如下设置： `Edit` -> `Scheme` -> `Run` -> `Arguments Passed On Launch` -> ` AppleLanguages` (语言代码)。其实本质上就是给`NSUserDefaults`中名为`AppleLanguages`的`key`赋值。
+* 命名建议:对`Localizable.strings`使用命名空间：
+
+  ```
+  "main.home"="主页";
+  "my.home"="我的主页";
+  "my.rate"="给个评价";
+  "news.home"="新闻主页";
+  "news.load"="加载新闻";
+  ```
+
 
 #参考链接
 * [3分钟实现iOS语言本地化/国际化（图文详解）](https://www.jianshu.com/p/88c1b65e3ddb)
+* [NSLocalizedString 多语言本地化](https://swiftcafe.io/post/ios-localize)
