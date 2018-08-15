@@ -50,6 +50,11 @@
 * [破船之家](http://beyondvincent.com/archives/)
 * [冰霜之地](http://beyondvincent.com/archives/)
 * [MrPeak杂货铺](http://mrpeak.cn) [微博 愚公编程MrPeak](https://weibo.com/soapyigu?is_hot=1#_loginLayer_1533786525252)
+* [美团技术团队](https://tech.meituan.com)
+* [WeRead团队博客](http://wereadteam.GitHub.io) 微信读书的技术博客
+* [百度Hi iOS团队技术周报](http://baiduhidevios.GitHub.io)
+* [Glow 技术团队博客](http://tech.glowing.com/cn/)
+* [苹果核 天猫无线](http://pingguohe.net)
     
 # 著名社区、网站
 * [ObjC 中国](https://objccn.io)
@@ -58,12 +63,6 @@
 * [NSHipster](https://nshipster.cn) 关注被忽略的 Objective-C、Swift 和 Cocoa
 * [iOS开发指南:最全的iOS零基础开发教程](https://www.developboot.com)
 
-# 团队博客
-* [美团技术团队](https://tech.meituan.com)
-* [WeRead团队博客](http://wereadteam.GitHub.io) 微信读书的技术博客
-* [百度Hi iOS团队技术周报](http://baiduhidevios.GitHub.io)
-* [Glow 技术团队博客](http://tech.glowing.com/cn/)
-* [苹果核 天猫无线](http://pingguohe.net)
 
 # 书籍
 * Effective Objective-C 2.0：编写高质量iOS与OS X代码的52个有效方法 [京东链接](https://item.jd.com/11402853.html)
@@ -106,7 +105,7 @@
 * [SQLite.swift](https://github.com/stephencelis/SQLite.swift)
 * [XLPagerTabStrip](https://github.com/xmartlabs/XLPagerTabStrip) 类新闻滑动页面
 * [Reachability.swift](https://github.com/ashleymills/Reachability.swift)
-* [R.swift](Get strong typed, autocompleted resources like images, fonts and segues in Swift projects)
+* [R.swift](https://github.com/mac-cain13/R.swift) Get strong typed, autocompleted resources like images, fonts and segues in Swift projects
 * [JTAppleCalendar](https://github.com/patchthecode/JTAppleCalendar) The Unofficial Apple iOS Swift Calendar View
 * [TextFieldEffects](https://github.com/raulriera/TextFieldEffects) 高度自定义输入框
 * [ScrollableGraphView](https://github.com/philackm/ScrollableGraphView) An adaptive scrollable graph view for iOS to visualise simple discrete datasets
