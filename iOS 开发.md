@@ -9,6 +9,7 @@
 * [Cocoa Core Competencies](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Introduction.html#//apple_ref/doc/uid/TP40008195-CH68-DontLinkElementID_2)
 * [Coding Guidelines for Cocoa](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingMethods.html#//apple_ref/doc/uid/20001282-BCIGIJJF)
 * [Objective-C Runtime Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048)
+* [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/#//apple_ref/doc/uid/TP40006556-CH27)
 
 # 大牛
 * 郭曜源 [YYKit](https://GitHub.com/ibireme/YYKit)作者
@@ -166,3 +167,114 @@
 * [FSCalendar](https://github.com/WenchaoD/FSCalendar) A fully customizable iOS calendar library, compatible with Objective-C and Swift
 * [Lottie for iOS, macOS](https://github.com/airbnb/lottie-ios) Airbnb开源的动画框架 [动画资源下载](https://www.lottiefiles.com)
 
+
+# iOS设计尺寸规范
+* [App Icon](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/)
+* [Launch Screen](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/launch-screen/)
+* [iPhone X](https://developer.apple.com/design/human-interface-guidelines/ios/overview/iphone-x/)
+
+| Device | 屏幕尺寸(inch) | 竖屏分辨率| PPI | Asset |
+| --- | --- | --- | --- | --- |
+| iPhone × | 5.8 | 1125px × 2436px (375pt × 812pt @3x) | 458 | @3x |
+| iPhone 6/6s/7/8 Plus | 5.5 | 1242px × 2208px (414pt × 736pt @3x) | 401 | @3x |
+| iPhone 6/6s/7/8 | 4.7 | 750px × 1334px (375pt × 667pt @2x) | 326 | @2x |
+| iPhone 5/5c/5s/SE | 4.0 | 640px × 1136px (320pt × 568pt @2x) | 326 | @2x |
+| iPhone 4/4S | 3.5 | 640px × 960px (320pt × 480pt @2x ) | 326 | @2x |
+| iPhone 1/3G/3GS | 3.5 | 320px × 480px (320pt × 480pt @1x) | 163 | @1x |
+| iPad Pro 12.9 | 12.9 | 2048px × 2732px (1024pt × 1366 @2x) | 264 | @2x |
+| iPad Pro 10.5 | 10.5 | 1668px × 2224px (834pt × 1112pt @2x) | 264 | @2x |
+| iPad Pro/Air 2/Retina iPad | 9.7 | 1536px × 2048px (768pt × 1024pt @2x) | 264 | @2x |
+| iPad mini 2/4 | 7.9 | 1536px × 2048px (768pt × 1024pt @2x) | 326 | @2x |
+| iPad 1/2 | 9.7 | 768px × 1024px (768pt × 1024pt) | 132 | @1x |
+
+
+| Device or context | Icon size |
+| --- | --- |
+| iPhone | 180px × 180px (60pt × 60pt @3x) |
+|  | 120px × 120px (60pt × 60pt @2x) |
+| iPad Pro | 167px × 167px (83.5pt × 83.5pt @2x) |
+| iPad, iPad mini | 152px × 152px (76pt × 76pt @2x) |
+| App Store | 1024px × 1024px (1024pt × 1024pt @1x) |
+
+
+| Device | Spotlight icon size | Settings icon size | Notification icon size |
+| --- | --- | --- | --- |
+| iPhone | 120px × 120px (40pt × 40pt @3x) | 87px × 87px (29pt × 29pt @3x) | 60px × 60px (20pt × 20pt @3x) |
+|  | 80px × 80px (40pt × 40pt @2x) | 58px × 58px (29pt × 29pt @2x) | 40px × 40px (20pt × 20pt @2x) |
+| iPad Pro, iPad, iPad mini | 80px × 80px (40pt × 40pt @2x) | 58px × 58px (29pt × 29pt @2x) | 40px × 40px (20pt × 20pt @2x) |
+
+
+| 设备 | NavigationBar高度 | StatusBar高度 | TabBar高度 | Home Indicator高度 |
+| --- | --- | --- | --- | --- |
+| iPhone X | 44pt | 44pt | 83pt | 34pt |
+| other iPhone | 44pt | 20pt | 48pt | 0pt |
+
+* iPhone X 跟 4.7 英寸屏幕对比
+    * 规格：宽度相同, 垂直高度增加了 145pt, 这意味着增加了 20% 的可视空间。
+    * 导航栏
+        * UINavigationBar: frame = (0 44; 375 44);
+        * _UIBarBackground: frame = (0 -44; 375 88);
+        * UIVisualEffectView: frame = (0 0; 375 88);
+        * _UIVisualEffectBackdropView: frame = (0 0; 375 88);
+        * _UIVisualEffectSubview: frame = (0 0; 375 88);
+        * _UINavigationBarContentView: frame = (0 0; 375 44);
+    * 状态栏：高度增加了24像素
+    * 底部栏：TabBar高度增加了34像素, ToolBar高度不变，只是向上偏移了34像素
+        * UITabBar: frame = (0 729; 375 83);
+        * UIToolbar: frame = (0 730; 375 48);
+
+
+
+
+## Assets.xcassets 
+### AppIcon 需提供矩形png格式,无alpha通道的图片
+* iPhone Notification iOS 7-11 20pt
+    * 2x：40px × 40px
+    * 3x：60px × 60px
+* iPhone Spotlight - iOS 5,6 Settings - iOS 5-11 29pt
+    * 2x：58px × 58px
+    * 3x：87px × 87px
+* iPhone Spotlight iOS 7-11 4Opt
+    * 2x：80px × 80px
+    * 3x：120px × 120px
+* iPhone App iOS 7-11 60pt
+    * 2x：120px × 120px
+    * 3x：180px × 180px
+* App Store iOS 1024pt
+    * 1x：1024px × 1024px
+* 总结：
+    *  40px × 40px
+    *  60px × 60px
+    *  58px × 58px
+    *  80px × 80px
+    *  87px × 87px
+    *  120px × 120px
+    *  180px × 180px
+    *  1024px × 1024px
+
+    
+## LaunchImage 需提供矩形png格式,无alpha通道的图片
+* iPhone × Portrait iOS 11+
+    * iPhone X：1125px × 2436px
+* iPhone Portrait iOS 8+
+    * Retina HD 5.5：1242px × 2208px
+    * Retina HD 4.7：750px × 1334px
+* iPhone Portrait iOS 7+
+    * 2x：640px × 960px
+    * Retina 4：640px × 1136px
+* 总结：
+    * 640px × 960px
+    * 640px × 1136px
+    * 750px × 1334px
+    * 1125px × 2436px
+    * 1242px × 2208px
+
+
+# 参考链接
+* [Building Apps for iPhone X](https://developer.apple.com/videos/play/tech-talks/201/)
+* [Designing for iPhone X](https://developer.apple.com/videos/play/tech-talks/801/)
+* [App Icon](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/)
+* [Launch Screen](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/launch-screen/)
+* [iPhone X](https://developer.apple.com/design/human-interface-guidelines/ios/overview/iphone-x/)
+* [iOS设计尺寸规范](https://uiiiuiii.com/screen/ios.htm)
+* [iPhoneX 适配实践](https://cloud.tencent.com/developer/article/1006131)
