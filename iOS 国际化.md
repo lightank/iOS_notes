@@ -1,42 +1,42 @@
 # iOS 国际化
 ## 主流语言参考
 
-本国语言名 | 英文名 | 中文名 | 英文缩写
------ | ----- | ----- | -----
-English | English | 英语 | en
-Français | French | 法语 | fr
-Deutsch | German | 德语 | de
-简体中文 | Chinese (Simplified) | 简体中文 | zh-Hans
-繁體中文 | Chinese (Traditional) | 繁体中文 | zh-Hant
-日本語 | Japanese | 日语 | ja
-Español | Spanish | 西班牙语 | es
- | Spanish (Mexico) | 墨西哥西班牙语 |  es-MX
+| 本国语言名 | 英文名 | 中文名 | 英文缩写
+| ----- | ----- | ----- | -----
+| English | English | 英语 | en
+| Français | French | 法语 | fr
+| Deutsch | German | 德语 | de
+| 简体中文 | Chinese (Simplified) | 简体中文 | zh-Hans
+| 繁體中文 | Chinese (Traditional) | 繁体中文 | zh-Hant
+| 日本語 | Japanese | 日语 | ja
+| Español | Spanish | 西班牙语 | es
+|  | Spanish (Mexico) | 墨西哥西班牙语 |  es-MX
 Italiano | Italian | 意大利语 | it
- | Dutch | 荷兰语 | nl 
+| | Dutch | 荷兰语 | nl 
 한국어 | Korean | 韩语 | ko
- | Portuguese (Brazil) | 巴西葡萄牙语 | pt-BR
-Português | Portuguese (Portugal) | 葡萄牙语 | pt-PT
-Dansk | Danish | 丹麦语 | da
- | Finnish | 芬兰语 | fi
- | Norwegian (Bokmål) |  挪威语 | nb
- | Swedish | 瑞典 | sv
- | Russian | 俄罗斯语 | ru
- | Polish | 波兰语 | pl
- | Turkish | 土耳其语 | tr
- | Arabic | 阿拉伯语 | ar
- | Thai | 泰国语 | th
- | Czech | 捷克语 | cs
- | Hungarian | 匈牙利语 | hu
- | Catalan | 加泰罗尼亚语  | ca
- | Croatian | 克罗地亚语 | hr
- | Greek | 希腊语 | el
- | Hebrew | 希伯来语 | he
- | Romanian | 罗马尼亚语 | ro
- | Slovak | 斯洛伐克语 | sk
- | Ukrainian | 乌克兰语 | uk
- | Indonesian | 印度尼西亚 | id
- | Malay | 马来语 | ms
- | Vietnamese | 越南 | vi
+| | Portuguese (Brazil) | 巴西葡萄牙语 | pt-BR
+| Português | Portuguese (Portugal) | 葡萄牙语 | pt-PT
+| Dansk | Danish | 丹麦语 | da
+|  | Finnish | 芬兰语 | fi
+|  | Norwegian (Bokmål) |  挪威语 | nb
+|  | Swedish | 瑞典 | sv
+|  | Russian | 俄罗斯语 | ru
+|  | Polish | 波兰语 | pl
+|  | Turkish | 土耳其语 | tr
+|  | Arabic | 阿拉伯语 | ar
+|  | Thai | 泰国语 | th
+|  | Czech | 捷克语 | cs
+|  | Hungarian | 匈牙利语 | hu
+|  | Catalan | 加泰罗尼亚语  | ca
+|  | Croatian | 克罗地亚语 | hr
+|  | Greek | 希腊语 | el
+|  | Hebrew | 希伯来语 | he
+|  | Romanian | 罗马尼亚语 | ro
+|  | Slovak | 斯洛伐克语 | sk
+|  | Ukrainian | 乌克兰语 | uk
+|  | Indonesian | 印度尼西亚 | id
+|  | Malay | 马来语 | ms
+|  | Vietnamese | 越南 | vi
 
 
 ## 应用名称本地化/国际化
