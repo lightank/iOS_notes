@@ -103,13 +103,18 @@ Italiano | Italian | 意大利语 | it
 * 命名建议:对`Localizable.strings`使用命名空间：
 
   ```
-  "main.home"="主页";
-  "my.home"="我的主页";
-  "my.rate"="给个评价";
-  "news.home"="新闻主页";
-  "news.load"="加载新闻";
+  "Main.Home" = "主页";
+  "My.Home" = "我的主页";
   ```
+* 使用 `NSLocalizedStringFromTable(key, tbl, comment)` 或 `NSLocalizedString(key, comment)` 做国际化的话，手机系统语言更改后，需将App Kill后，重新进入才有改变，这样不友好，建议使用 `Bundle` 资源读取方法
+    
+    几个国际化的宏
 
+  ```
+#define kCurrentLanguage (((NSArray *)([[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"])).firstObject)
+#define LTLocalizedString(string) ([[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kCurrentLanguage ofType:@"lproj"]] localizedStringForKey:(string) value:@"" table:nil])
+#define LTLocalizedStringWithTable(string, table) ([[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kCurrentLanguage ofType:@"lproj"]] localizedStringForKey:(string) value:@"" table:table])
+  ```
 
 # 参考链接
 * [3分钟实现iOS语言本地化/国际化（图文详解）](https://www.jianshu.com/p/88c1b65e3ddb)
