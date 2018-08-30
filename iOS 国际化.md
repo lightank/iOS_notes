@@ -111,9 +111,9 @@ Italiano | Italian | 意大利语 | it
     几个国际化的宏
 
   ```
-#define kCurrentLanguage (((NSArray *)([[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"])).firstObject)
-#define LTLocalizedString(string) ([[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kCurrentLanguage ofType:@"lproj"]] localizedStringForKey:(string) value:@"" table:nil])
-#define LTLocalizedStringWithTable(string, table) ([[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kCurrentLanguage ofType:@"lproj"]] localizedStringForKey:(string) value:@"" table:table])
+    #define kCurrentLanguage (((NSArray *)([[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"])).firstObject)
+    #define LTLocalizedString(string) ([[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kCurrentLanguage ofType:@"lproj"]] localizedStringForKey:(string) value:@"" table:nil])
+    #define LTLocalizedStringWithTable(string, table) ([[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kCurrentLanguage ofType:@"lproj"]] localizedStringForKey:(string) value:@"" table:table])
   ```
 
 # 参考链接
