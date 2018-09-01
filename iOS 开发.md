@@ -167,6 +167,64 @@
 * [FSCalendar](https://github.com/WenchaoD/FSCalendar) A fully customizable iOS calendar library, compatible with Objective-C and Swift
 * [Lottie for iOS, macOS](https://github.com/airbnb/lottie-ios) Airbnb开源的动画框架 [动画资源下载](https://www.lottiefiles.com)
 
+# 脚本
+## Xcode Build 打包自增脚本
+### Release
+
+```
+if [ $CONFIGURATION == Release ]; then
+echo "Bumping build number..."
+plist=${PROJECT_DIR}/${INFOPLIST_FILE}
+#increment the build number (ie 115 to 116)
+buildnum=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "${plist}")
+if [[ "${buildnum}" == "" ]]; then
+echo "No build number in $plist"
+exit 2
+fi
+buildnum=$(expr $buildnum + 1)
+/usr/libexec/Plistbuddy -c "Set CFBundleVersion $buildnum" "${plist}"
+echo "Bumped build number to $buildnum"
+
+else
+echo $CONFIGURATION " build - Not bumping build number."
+fi
+```
+
+### Debug
+```
+if [ $CONFIGURATION == Debug ]; then
+echo "Bumping build number..."
+plist=${PROJECT_DIR}/${INFOPLIST_FILE}
+#increment the build number (ie 115 to 116)
+buildnum=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "${plist}")
+if [[ "${buildnum}" == "" ]]; then
+echo "No build number in $plist"
+exit 2
+fi
+buildnum=$(expr $buildnum + 1)
+/usr/libexec/Plistbuddy -c "Set CFBundleVersion $buildnum" "${plist}"
+echo "Bumped build number to $buildnum"
+
+else
+echo $CONFIGURATION " build - Not bumping build number."
+fi
+```
+
+### Release && Debug
+```
+echo "Bumping build number..."
+plist=${PROJECT_DIR}/${INFOPLIST_FILE}
+#increment the build number (ie 115 to 116)
+buildnum=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "${plist}")
+if [[ "${buildnum}" == "" ]]; then
+echo "No build number in $plist"
+exit 2
+fi
+buildnum=$(expr $buildnum + 1)
+/usr/libexec/Plistbuddy -c "Set CFBundleVersion $buildnum" "${plist}"
+echo "Bumped build number to $buildnum"
+```
+
 
 # iOS设计尺寸规范
 * [App Icon](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/)
@@ -223,9 +281,6 @@
         * UITabBar: frame = (0 729; 375 83);
         * UIToolbar: frame = (0 730; 375 48);
 
-
-
-
 ## Assets.xcassets 
 ### AppIcon 需提供矩形png格式,无alpha通道的图片
 * iPhone Notification iOS 7-11 20pt
@@ -278,3 +333,4 @@
 * [iPhone X](https://developer.apple.com/design/human-interface-guidelines/ios/overview/iphone-x/)
 * [iOS设计尺寸规范](https://uiiiuiii.com/screen/ios.htm)
 * [iPhoneX 适配实践](https://cloud.tencent.com/developer/article/1006131)
+* [Xcode Build 打包自增脚本](https://www.jianshu.com/p/f0d51a1d5f6d)
