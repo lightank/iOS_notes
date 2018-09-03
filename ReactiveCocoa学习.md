@@ -102,7 +102,193 @@ signal = [signal filter:^BOOL(NSNumber *value) {
 }];
 ```
 
-![rac_filter](https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_filter.png)
+![rac_filter][rac_filter]
+
+## map
+
+```
+RACSignal *signal = [@[ @1, @2, @3 ] rac_sequence].signal;
+  signal = [signal map:^id(NSNumber *value) {
+    return @(value.integerValue * 2);
+  }];
+  [signal subscribeNext:^(NSNumber *value) {
+    NSLog(@"%@", value);
+  }];
+```
+
+![rac_map][rac_map]
+
+## merge
+
+```
+RACSignal *signal1 = [@[ @1, @2 ] rac_sequence].signal;
+RACSignal *signal2 = [@[ @4, @5 ] rac_sequence].signal;
+
+[[signal1 merge:signal2] subscribeNext:^(NSNumber *value) {
+    NSLog(@"%@", value);
+}];
+```
+
+![rac_merge][rac_merge]
+
+## combineLatest
+
+```
+RACSignal *signal1 = [@[ @1, @2 ] rac_sequence].signal;
+  RACSignal *signal2 = [@[ @3, @4 ] rac_sequence].signal;
+
+  [[signal1 combineLatestWith:signal2] subscribeNext:^(RACTuple *value) {
+    NSLog(@"%@", value);
+  }];
+```
+
+![rac_combineLatest][rac_combineLatest]
+
+## combineLatest & reduce
+
+```
+RACSignal *signal1 = [@[ @1, @2 ] rac_sequence].signal;
+  RACSignal *signal2 = [@[ @3, @4 ] rac_sequence].signal;
+
+  [[[signal1 combineLatestWith:signal2]
+      reduceEach:^id(NSNumber *v1, NSNumber *v2) {
+        return @(v1.integerValue * v2.integerValue);
+      }] subscribeNext:^(RACTuple *value) {
+    NSLog(@"%@", value);
+  }];
+```
+
+![rac_combineLatest%26reduce][rac_combineLatest%26reduce]
+
+## flatten
+
+```
+RACSignal *signal1 = [@[ @1, @2 ] rac_sequence].signal;
+RACSignal *signal2 = [RACSignal return:signal1];
+
+[[signal2 flatten] subscribeNext:^(NSNumber *value) {
+    NSLog(@"%@", value);
+}];
+```
+
+![rac_flatten][rac_flatten]
+
+## flattenMap
+
+```
+RACSignal *signal = [@[ @1, @2 ] rac_sequence].signal;
+
+[[signal flattenMap:^RACStream *(NSNumber *value) {
+    return [RACSignal return:@(value.integerValue * 2)];
+}] subscribeNext:^(NSNumber *value) {
+    NSLog(@"%@", value);
+}];
+```
+
+![rac_flattenMap][rac_flattenMap]
+
+## replay
+
+```
+RACSubject *letters = [RACReplaySubject subject];
+RACSignal *signal = letters;
+[signal subscribeNext:^(id x) {
+  NSLog(@"S1: %@", x);
+}];
+[letters sendNext:@"A"];
+[signal subscribeNext:^(id x) {
+  NSLog(@"S2: %@", x);
+}];
+[letters sendNext:@"B"];
+[signal subscribeNext:^(id x) {
+  NSLog(@"S3: %@", x);
+}];
+[letters sendNext:@"C"];
+```
+
+![rac_replay][rac_replay]
+
+## not replay
+
+```
+RACSubject *letters = [RACSubject subject];
+RACSignal *signal = letters;
+[signal subscribeNext:^(id x) {
+    NSLog(@"S1: %@", x);
+}];
+[letters sendNext:@"A"];
+[signal subscribeNext:^(id x) {
+    NSLog(@"S2: %@", x);
+}];
+[letters sendNext:@"B"];
+[letters sendNext:@"C"];
+```
+![rac_not_replay][rac_not_replay]
+
+## replayLast
+
+```
+RACSubject *letters = [RACSubject subject];
+RACSignal *signal = [letters replayLast];
+[signal subscribeNext:^(id x) {
+  NSLog(@"S1: %@", x);
+}];
+[letters sendNext:@"A"];
+[signal subscribeNext:^(id x) {
+  NSLog(@"S2: %@", x);
+}];
+[letters sendNext:@"B"];
+[signal subscribeNext:^(id x) {
+  NSLog(@"S3: %@", x);
+}];
+[letters sendNext:@"C"];
+```
+
+![rac_replayLast][rac_replayLast]
+
+## replayLazily
+
+```
+RACSubject *letters = [RACSubject subject];
+RACSignal *signal = [letters replayLazily];
+[letters sendNext:@"A"];
+[signal subscribeNext:^(id x) {
+  NSLog(@"S1: %@", x);
+}];
+[letters sendNext:@"B"];
+[signal subscribeNext:^(id x) {
+  NSLog(@"S2: %@", x);
+}];
+[letters sendNext:@"C"];
+[signal subscribeNext:^(id x) {
+  NSLog(@"S3: %@", x);
+}];
+[letters sendNext:@"D"];
+```
+
+![rac_replayLazily][rac_replayLazily]
+
+## zip
+
+```
+RACSubject *letters = [RACSubject subject];
+RACSignal *signal = [letters replayLazily];
+[letters sendNext:@"A"];
+[signal subscribeNext:^(id x) {
+  NSLog(@"S1: %@", x);
+}];
+[letters sendNext:@"B"];
+[signal subscribeNext:^(id x) {
+  NSLog(@"S2: %@", x);
+}];
+[letters sendNext:@"C"];
+[signal subscribeNext:^(id x) {
+  NSLog(@"S3: %@", x);
+}];
+[letters sendNext:@"D"];
+```
+
+![rac_zip][rac_zip]
 
 ## subscribeNext
 RACSignal提供了若干的方法用以订阅这些不同的事件类型。每个方法都会接受一个或多个block作为入参，当新的事件出现时，block中的逻辑代码就会执行。在这个例子中，你可以看到subscribeNext:方法就提供了一个block，在每个next事件到达时执行里面的代码。
@@ -302,3 +488,16 @@ code赋值textField.text -> string
 [streams]:https://github.com/ReactiveCocoa/ReactiveObjC/blob/master/Documentation/FrameworkOverview.md#streams
 [ReactiveCocoa教程：上半部【译】]:https://www.jianshu.com/p/247df483a3cf
 [ReactiveCocoa教程：下半部【译】]:https://www.jianshu.com/p/1fc69a1d9471
+[rac_combineLatest%26reduce]:https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_combineLatest%26reduce.png
+[rac_combineLatest]:https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_combineLatest.png
+[rac_filter]:https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_filter.png
+[rac_flatten]:https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_flatten.png
+[rac_flattenMap]:https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_flattenMap.png
+[rac_map]:https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_map.png
+[rac_merge]:https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_merge.png
+[rac_not_replay]:https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_not_replay.png
+[rac_replay]:https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_replay.png
+[rac_replayLast]:https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_replayLast.png
+[rac_replayLazily]:https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_replayLazily.png
+[rac_zip]:https://github.com/lightank/iOS_notes/blob/master/Resource/rac/rac_zip.png
+
