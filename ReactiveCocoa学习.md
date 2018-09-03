@@ -63,7 +63,7 @@ signal 和 sequence 都是 [streams][streams]，他们共享很多相同的方�
 > 
 > RACSequence 允许任意Cocoa集合在统一且显式地进行操作。
 
-```
+```objc
 RACSequence *normalizedLongWords = [[words.rac_sequence
     filter:^ BOOL (NSString *word) {
         return [word length] >= 10;
@@ -77,7 +77,7 @@ RACSequence *normalizedLongWords = [[words.rac_sequence
 
 将方法名左边对齐，更加清晰
 
-```
+```objc
 [[self.usernameTextField.rac_textSignal
   filter:^BOOL(id value) {
     NSString *text = value; // implicit cast
@@ -106,7 +106,7 @@ signal = [signal filter:^BOOL(NSNumber *value) {
 
 ## map
 
-```
+```objc
 RACSignal *signal = [@[ @1, @2, @3 ] rac_sequence].signal;
   signal = [signal map:^id(NSNumber *value) {
     return @(value.integerValue * 2);
@@ -120,7 +120,7 @@ RACSignal *signal = [@[ @1, @2, @3 ] rac_sequence].signal;
 
 ## merge
 
-```
+```objc
 RACSignal *signal1 = [@[ @1, @2 ] rac_sequence].signal;
 RACSignal *signal2 = [@[ @4, @5 ] rac_sequence].signal;
 
@@ -133,7 +133,7 @@ RACSignal *signal2 = [@[ @4, @5 ] rac_sequence].signal;
 
 ## combineLatest
 
-```
+```objc
 RACSignal *signal1 = [@[ @1, @2 ] rac_sequence].signal;
   RACSignal *signal2 = [@[ @3, @4 ] rac_sequence].signal;
 
@@ -146,7 +146,7 @@ RACSignal *signal1 = [@[ @1, @2 ] rac_sequence].signal;
 
 ## combineLatest & reduce
 
-```
+```objc
 RACSignal *signal1 = [@[ @1, @2 ] rac_sequence].signal;
   RACSignal *signal2 = [@[ @3, @4 ] rac_sequence].signal;
 
@@ -162,7 +162,7 @@ RACSignal *signal1 = [@[ @1, @2 ] rac_sequence].signal;
 
 ## flatten
 
-```
+```objc
 RACSignal *signal1 = [@[ @1, @2 ] rac_sequence].signal;
 RACSignal *signal2 = [RACSignal return:signal1];
 
@@ -175,7 +175,7 @@ RACSignal *signal2 = [RACSignal return:signal1];
 
 ## flattenMap
 
-```
+```objc
 RACSignal *signal = [@[ @1, @2 ] rac_sequence].signal;
 
 [[signal flattenMap:^RACStream *(NSNumber *value) {
@@ -189,7 +189,7 @@ RACSignal *signal = [@[ @1, @2 ] rac_sequence].signal;
 
 ## replay
 
-```
+```objc
 RACSubject *letters = [RACReplaySubject subject];
 RACSignal *signal = letters;
 [signal subscribeNext:^(id x) {
@@ -210,7 +210,7 @@ RACSignal *signal = letters;
 
 ## not replay
 
-```
+```objc
 RACSubject *letters = [RACSubject subject];
 RACSignal *signal = letters;
 [signal subscribeNext:^(id x) {
@@ -227,7 +227,7 @@ RACSignal *signal = letters;
 
 ## replayLast
 
-```
+```objc
 RACSubject *letters = [RACSubject subject];
 RACSignal *signal = [letters replayLast];
 [signal subscribeNext:^(id x) {
@@ -248,7 +248,7 @@ RACSignal *signal = [letters replayLast];
 
 ## replayLazily
 
-```
+```objc
 RACSubject *letters = [RACSubject subject];
 RACSignal *signal = [letters replayLazily];
 [letters sendNext:@"A"];
@@ -270,7 +270,7 @@ RACSignal *signal = [letters replayLazily];
 
 ## zip
 
-```
+```objc
 RACSubject *letters = [RACSubject subject];
 RACSignal *signal = [letters replayLazily];
 [letters sendNext:@"A"];
