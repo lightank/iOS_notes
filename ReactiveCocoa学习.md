@@ -123,6 +123,21 @@ RACDisposable *subscription =
 
 # 基本函数
 
+## - ignore: (id)
+
+忽略给定的值，注意，这里忽略的既可以是地址相同的对象，也可以是- isEqual:结果相同的值，也就是说自己写的Model对象可以通过重写- isEqual:方法来使- ignore:生效。常用的值的判断没有问题，如下：
+
+```objc
+[[self.inputTextField.rac_textSignal ignore:@"sunny"] subscribeNext:^(NSString *value) {
+    NSLog(@"`sunny` could never appear : %@", value);
+}];
+```
+
+## -ignoreValues
+
+这个比较极端，忽略所有值，只关心Signal结束，也就是只取Comletion和Error两个消息，中间所有值都丢弃。
+注意，这个操作应该出现在Signal有终止条件的的情况下，如rac_textSignal这样除dealloc外没有终止条件的Signal上就不太可能用到。
+
 ## filter
 
 过滤信号，使用它可以获取满足条件的信号.
@@ -233,12 +248,36 @@ RACSubject *signal = [RACSubject subject];
 
 ## takeUntil:(RACSignal *)
 
-获取信号直到某个信号执行完成
+当给定的signal完成前一直取值。最简单的栗子就是UITextField的rac_textSignal的实现（删减版本）:
 
 ```objc
-// 监听文本框的改变直到当前对象被销毁
-[_textField.rac_textSignal takeUntil:self.rac_willDeallocSignal];
+- (RACSignal *)rac_textSignal {
+	@weakify(self);
+	return [[[[[RACSignal
+		concat:[self rac_signalForControlEvents:UIControlEventEditingChanged]]
+		map:^(UITextField *x) {
+			return x.text;
+		}]
+		takeUntil:self.rac_willDeallocSignal] // bingo!
+}
 ```
+
+## - takeUntilBlock:(BOOL (^)(id x))
+
+对于每个next值，运行block，当block返回YES时停止取值，如：
+
+```objc
+[[self.inputTextField.rac_textSignal takeUntilBlock:^BOOL(NSString *value) {
+    return [value isEqualToString:@"stop"];
+}] subscribeNext:^(NSString *value) {
+    NSLog(@"current value is not `stop`: %@", value);
+}];
+```
+
+## - takeWhileBlock:(BOOL (^)(id x))
+
+上面的反向逻辑，对于每个next值，block返回 YES时才取值
+
 
 ## skip:(NSUInteger)
 
@@ -250,6 +289,14 @@ RACSubject *signal = [RACSubject subject];
     NSLog(@"%@",x);
 }];
 ```
+
+## - skipUntilBlock:(BOOL (^)(id x))
+
+和`- takeUntilBlock:`同理，一直跳，直到block为YES
+
+## - skipWhileBlock:(BOOL (^)(id x))
+
+和`- takeWhileBlock:`同理，一直跳，直到block为NO
 
 ## switchToLatest
 
@@ -679,6 +726,18 @@ RACSignal *signal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> 
 }];
 ```
 
+## startWith
+
+给一个初始值
+
+```objc
+RAC(self.outputLabel, text) = [[self.inputTextField.rac_textSignal
+    startWith:@"key is >3"] /* startWith 一开始返回的初始值 */
+    filter:^BOOL(NSString *value) {
+        return value.length > 3; /* filter使满足条件的值才能传出 */
+}];
+```
+
 ## retry
 
 重试 ：只要失败，就会重新执行创建信号中的block,直到成功.
@@ -1027,6 +1086,46 @@ RACSignal *signalA = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> 
 
     }];
 ```
+
+是一个非常重要的函数，在Rac Doc中被描述为‘basic primitives, particularly’，它是RACStream监测“值”和控制“运行状态”的基本方法，个人认为看注释文档不能理解它是干嘛的，而且bind英语“捆绑，绑定，强迫，约束”这几个意思也感觉对不上，我觉得叫“绑架”倒是更贴切一点。在-bind：之后，之前的RACStream就处于被“绑架”的状态，被绑架的RACStream每产生一个值，都要经过“绑架者”来决定：
+1. 是否使这个RACStream结束（被绑架者是否还能继续活着）
+2. 用什么新的RACStream来替换被绑架的RACStream，传出的结果也成了新RACStream产生的值（绑匪可以选择再抓一个人质放之前那个前面）
+
+举个具体栗子，RACStream的 - take：方法，这个方法使一个RACStream只取前N次的值（有缩减）：
+
+```objc
+- (instancetype)take:(NSUInteger)count {
+    Class class = self.class;
+
+    return [[self bind:^{ // self被绑架
+        __block NSUInteger taken = 0;
+
+        return ^ id (id value, BOOL *stop) { // 这个block在被绑架的self每输出一个值得时候触发
+            RACStream *result = class.empty;
+
+            if (taken < count) result = [class return:value]; // 未达到N次时将原值原原本本的传递出去
+            if (++taken >= count) *stop = YES; // 达到第N次值后干掉了被绑架的self
+
+            return result; // 将被绑架的self替换为result
+        };
+    }]];
+}
+```
+
+-concat: 和 -zipWith: 就是将两个RACStream连接起来的基本方法了：
+
+`[A concat:B]`中A和B像`皇上`和`太子`的关系，A是皇上，B是太子。皇上健在的时候统治天下发号施令（value），太子就候着，不发号施令（value），当皇上挂了（completed），太子登基当皇上，此时发出的号令（value）是太子的。
+
+`[C zipWith:D]`可以比喻成一对`平等恩爱的夫妻`，两个人是“绑在一起“的关系来组成一个家庭，决定一件事（value）时必须两个人都提出意见（当且仅当C和D同时都产生了值的时候，一个value才被输出，CD只有其中一个有值时会挂起等待另一个的值，所以输出都是一对值（RACTuple）），当夫妻只要一个人先挂了（completed）这个家庭（组合起来的RACStream）就宣布解散（也就是无法凑成一对输出时就终止）
+
+## +empty
+
+一个不返回值，立刻结束(Completed)的函数，意思是执行它之后除了立刻结束啥都不会发生，可以理解为RAC里面的nil。
+
+## +return:
+
+是一个直接返回给定值，然后立刻结束的函数，比如 f(x) = 213
+
 
 # 类
 ## RACSignal
@@ -1814,7 +1913,7 @@ code赋值textField.text -> string
 由于你希望这个信号不在主线程中执行，上面的方法先获取了一个后台调度器。然后创建一个信号，该信号在有订阅者时下载图像数据并生成UIImage。最后一步就是使用`subscribeOn:`，以保证信号在提供的调度器中执行。
 
 
-# 常见宏
+# 常用宏
 
 ## RAC(TARGET, [KEYPATH, [NIL_VALUE]])
 
@@ -1822,7 +1921,8 @@ code赋值textField.text -> string
 
 ```
 // 只要文本框文字改变，就会修改label的文字
-RAC(self.labelView,text) = _textField.rac_textSignal;
+RAC(self.outputLabel, text) = self.inputTextField.rac_textSignal;
+RAC(self.outputLabel, text, @"收到nil时就显示我") = self.inputTextField.rac_textSignal;
 ```
 
 ## RACObserve(self, name)
@@ -1856,6 +1956,27 @@ RACTuple *tuple = RACTuplePack(@"xmg",@20);
 RACTupleUnpack(NSString *name,NSNumber *age) = tuple;
 ```
 
+这个宏是最常用的，`RAC()`总是出现在等号左边，等号右边是一个`RACSignal`，表示的意义是将一个对象的一个`属性`和一个`signal`绑定，`signal`每产生一个value（id类型），都会自动执行：
+
+```objc
+[TARGET setValue:value ?: NIL_VALUE forKeyPath:KEYPATH];
+```
+
+数字值会升级为NSNumber *，当setValue:forKeyPath时会自动降级成基本类型（int, float ,BOOL等），所以RAC绑定一个基本类型的值是没有问题的
+
+```objc
+· RACObserve(TARGET, KEYPATH)
+```
+
+作用是观察TARGET的KEYPATH属性，相当于KVO，产生一个`RACSignal`
+
+最常用的使用，和RAC宏绑定属性：
+
+```objc
+RAC(self.outputLabel, text) = RACObserve(self.model, name);
+```
+
+
 
 # Tips
 
@@ -1864,6 +1985,80 @@ RACTupleUnpack(NSString *name,NSNumber *age) = tuple;
 `@weakify`和`@strongify`是定义在`Extended Objective-C`库的宏，这也已经包含在`ReactiveCocoa`框架中。`@weakify`宏创建了弱应用的影子变量（`shadow variables`）（如果你需要多个弱引用，你可以传入多个变量），`@strongify`宏则使用先前传到@weakify的变量创建强引用。
 
 >注意：如果你对@weakify和@strongify的具体操作感到好奇，你可以在Xcode中选择Product -> Perform Action -> Preprocess “RWSearchForViewController”。这会对视图控制器进行预处理，展开所有的宏让你看到最终的输出。
+
+## Side Effects
+
+RACSignal在被subscribe的时候可能会产生副作用，先举个官方的例子：
+
+```objc
+__block int aNumber = 0;
+
+// Signal that will have the side effect of incrementing `aNumber` block
+// variable for each subscription before sending it.
+RACSignal *aSignal = [RACSignal createSignal:^ RACDisposable * (id<RACSubscriber> subscriber) {
+    aNumber++;
+    [subscriber sendNext:@(aNumber)];
+    [subscriber sendCompleted];
+    return nil;
+}];
+// This will print "subscriber one: 1"
+[aSignal subscribeNext:^(id x) {
+    NSLog(@"subscriber one: %@", x);
+}];
+// This will print "subscriber two: 2"
+[aSignal subscribeNext:^(id x) {
+    NSLog(@"subscriber two: %@", x);
+}];
+```
+
+上面的signal在作用域外部引用了一个int变量，同时在signal的运算过程中作为next事件的值返回，这就造成了所谓的副作用，因为第二个订阅者的订阅而影响了输出值。
+
+我的理解来看，这个事儿做的就不太地道，一个正经的函数式编程中的函数是不应该因为进行了运算而导致后面运算的值不统一的。但对于实际应用的情况来看也到无可厚非，比如用户点击了“登录”按钮，编程时把登录这个业务写为一个login的RACSignal，当然，第一次调用登录和再点一次第二次调用登录的结果肯定不一样了。所以说RAC式编程减少了大部分对临时状态值的定义，但不是全部哦。
+
+怎么办呢？我觉得最好的办法就是“约定”，RAC design guide里面介绍了对于一个signal的命名法则：
+
+>Hot signals without side effects 最好使用property，如“textChanged”，不太理解什么情况用到这个，权当做一个静态的属性来看就行。
+Cold signals without side effects 使用名词类型的方法名，如“-currentText”，“currentModels”，同时表明了返回值是个啥（这个尤其得注意，RACSignal的next值是id类型，所以全得是靠约定才知道具体返回类型）
+Signals with side effects 这种就是像login一样有副作用的了，推荐使用动词类型的方法名，用对动词基本就能知道是不是有副作用了，比如“-loginSignal”和“-saveToFile”大概就知道前面一个很可能有副作用，后面一个多存几次文件应该没副作用
+
+当然，也可以multicast一个event，使得某些特殊的情况来共享一个副作用，后面再具体讲，先一个官方的简单的栗子：
+
+```objc
+// This signal starts a new request on each subscription.
+RACSignal *networkRequest = [RACSignal createSignal:^(id<RACSubscriber> subscriber) {
+    AFHTTPRequestOperation *operation = [client
+        HTTPRequestOperationWithRequest:request
+        success:^(AFHTTPRequestOperation *operation, id response) {
+            [subscriber sendNext:response];
+            [subscriber sendCompleted];
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [subscriber sendError:error];
+        }];
+
+    [client enqueueHTTPRequestOperation:operation];
+    return [RACDisposable disposableWithBlock:^{
+        [operation cancel];
+    }];
+}];
+
+// Starts a single request, no matter how many subscriptions `connection.signal`
+// gets. This is equivalent to the -replay operator, or similar to
+// +startEagerlyWithScheduler:block:.
+RACMulticastConnection *connection = [networkRequest multicast:[RACReplaySubject subject]];
+[connection connect];
+
+[connection.signal subscribeNext:^(id response) {
+    NSLog(@"subscriber one: %@", response);
+}];
+
+[connection.signal subscribeNext:^(id response) {
+    NSLog(@"subscriber two: %@", response);
+}];
+```
+
+当地一个订阅者subscribeNext的时候触发了AFNetworkingOperation的创建和执行，开始网络请求，此时又来了个订阅者订阅这个Signal，按理说这个网络请求会被“副作用”，重新发一遍，但做了上面的处理之后，这两个订阅者接收到了同样的一个请求的内容。
+
 
 # MVVM
 
@@ -1885,6 +2080,7 @@ RACTupleUnpack(NSString *name,NSNumber *age) = tuple;
 * [图解ReactiveCocoa基本函数](https://www.jianshu.com/p/38d39923ee81)
 * [最快让你上手ReactiveCocoa之基础篇](https://www.jianshu.com/p/87ef6720a096)
 * [最快让你上手ReactiveCocoa之进阶篇](https://www.jianshu.com/p/e10e5ca413b7)
+* [Reactive Cocoa Tutorial \[1\] = 神奇的Macros](http://blog.sunnyxx.com/2014/03/06/rac_1_macros/)
 
 [ReactiveObjC]:https://github.com/ReactiveCocoa/ReactiveObjC
 [ReactiveCocoa]:https://github.com/ReactiveCocoa/ReactiveCocoa
