@@ -290,7 +290,7 @@ echo "Bumped build number to $buildnum"
 * iPhone Spotlight - iOS 5,6 Settings - iOS 5-11 29pt
     * 2x：58px × 58px
     * 3x：87px × 87px
-* iPhone Spotlight iOS 7-11 4Opt
+* iPhone Spotlight iOS 7-11 40pt
     * 2x：80px × 80px
     * 3x：120px × 120px
 * iPhone App iOS 7-11 60pt

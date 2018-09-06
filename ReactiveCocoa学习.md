@@ -309,7 +309,6 @@ RACSubject *signal = [RACSubject subject];
 // 获取信号中信号最近发出信号，订阅最近发出的信号。
 // 注意switchToLatest：只能用于信号中的信号
 [signalOfSignals.switchToLatest subscribeNext:^(id x) {
-   
     NSLog(@"%@",x);
 }];
 [signalOfSignals sendNext:signal];
@@ -1438,45 +1437,31 @@ RAC中用于处理事件的类，可以把事件如何处理,事件中的数据�
 
     // 1.创建命令
     RACCommand *command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        
-        
         NSLog(@"执行命令");
-        
         // 创建空信号,必须返回信号
         //        return [RACSignal empty];
-        
         // 2.创建信号,用来传递数据
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            
             [subscriber sendNext:@"请求数据"];
-            
             // 注意：数据传递完，最好调用sendCompleted，这时命令才执行完毕。
             [subscriber sendCompleted];
-            
             return nil;
         }];
-        
     }];
     
     // 强引用命令，不要被销毁，否则接收不到数据
     _conmmand = command;
     
-    
-   
     // 3.订阅RACCommand中的信号
     [command.executionSignals subscribeNext:^(id x) {
-        
         [x subscribeNext:^(id x) {
-            
             NSLog(@"%@",x);
         }];
-        
     }];
     
     // RAC高级用法
     // switchToLatest:用于signal of signals，获取signal of signals发出的最新信号,也就是可以直接拿到RACCommand中的信号
     [command.executionSignals.switchToLatest subscribeNext:^(id x) {
-        
         NSLog(@"%@",x);
     }];
     
@@ -2081,6 +2066,9 @@ RACMulticastConnection *connection = [networkRequest multicast:[RACReplaySubject
 * [最快让你上手ReactiveCocoa之基础篇](https://www.jianshu.com/p/87ef6720a096)
 * [最快让你上手ReactiveCocoa之进阶篇](https://www.jianshu.com/p/e10e5ca413b7)
 * [Reactive Cocoa Tutorial \[1\] = 神奇的Macros](http://blog.sunnyxx.com/2014/03/06/rac_1_macros/)
+* [ReactiveCocoa v2.5 源码解析之架构总览](http://blog.leichunfeng.com/blog/2015/12/25/reactivecocoa-v2-dot-5-yuan-ma-jie-xi-zhi-jia-gou-zong-lan/)
+* [ReactiveCocoa学习笔记](http://yulingtianxia.com/blog/2014/07/29/reactivecocoa/)
+* [iOS开发下的函数响应式编程](http://williamzang.com/blog/2016/06/27/ios-kai-fa-xia-de-han-shu-xiang-ying-shi-bian-cheng/)
 
 [ReactiveObjC]:https://github.com/ReactiveCocoa/ReactiveObjC
 [ReactiveCocoa]:https://github.com/ReactiveCocoa/ReactiveCocoa
