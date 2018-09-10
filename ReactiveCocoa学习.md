@@ -1,4 +1,4 @@
-# ReactiveCocoa学习
+# ReactiveObjC学习
 * [ReactiveObjC][ReactiveObjC] 
 * [ReactiveCocoa][ReactiveCocoa]
 
@@ -92,7 +92,7 @@ RACSequence *normalizedLongWords = [[words.rac_sequence
 
 匿名构造管道是`ReactiveObjc`的其中一个设计理念。回顾至今为止你写的所有响应式代码，这应该是显而易见的。
 
-为了支持这种特性，`ReactiveObjc`维系保持了它自己的全局信号集（`global set of signals`）。如果信号有一个或多个订阅者的话，信号就会被激活。如果所有的订阅者都给移除了，该信号就可以被回收。想知道更多关于`ReactiveObjc`内管理这个过程的内容，你可以浏览 [Memory Management][MemoryManagement]文档（译注：文档已失效）。
+为了支持这种特性，`ReactiveObjc`维系保持了它自己的全局信号集（`global set of signals`）。如果信号有一个或多个订阅者的话，信号就会被激活。如果所有的订阅者都给移除了，该信号就可以被回收。想知道更多关于`ReactiveObjc`内管理这个过程的内容，你可以浏览 [Memory Management][MemoryManagement]文档。
 
 这就剩下最后一个问题了：怎样取消信号的订阅呢？订阅在接收到`completed`或`error`事件后，就会自动移除（你很快就会学到更多关于这部分的内容）。而要手动移除的话可以借助`RACDisposable`.
 
