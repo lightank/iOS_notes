@@ -1,6 +1,7 @@
 # CocoaPods创建库
 
 * [CocoaPods Guides](https://guides.cocoapods.org)
+* [Podspec Syntax Reference](https://guides.cocoapods.org/syntax/podspec.html)
 
 # 创建公开库
 
@@ -16,8 +17,8 @@ $ pod --version
 如果版本低，需要升级：
 
 ```ruby
-sudo gen install cocoapods
-pod setup
+$ sudo gen install cocoapods
+$ pod setup
 ```
 
 查看自己是否注册过Trunk
@@ -152,6 +153,9 @@ s.frameworks：依赖的系统库，示例如下：
 s.dependency：依赖库，不能依赖未发布的库，可以写多个依赖库，示例如下：
     s.dependency = 'AFNetworking' , 'SDWebImage'
 s.resources: 资源文件
+s.ios.vendored_frameworks = 'YJKit/YJKit.framework' # 依赖的第三方/自己的framework
+s.vendored_libraries = 'Library/Classes/libWeChatSDK.a' #表示依赖第三方/自己的静态库（比如libWeChatSDK.a）
+#依赖的第三方的或者自己的静态库文件必须以lib为前缀进行命名，否则会出现找不到的情况，这一点非常重要
 ```
 
 如果前面没有选择创建这个`LICENSE`文件， 创建`LICENSE`(许可证/授权)文件,此文件必须要有，内容如下，只需要把前面的版权改一下就行了,后面的都一样：
@@ -319,4 +323,6 @@ source 'https://github.com/zhangyqyx/ZYRunTimeCoT.git'
 # 参考链接
 
 * [CocoaPods创建自己的公开库、私有库](http://www.code4app.com/blog-847095-1887.html)
-
+* [CocoaPods公有仓库的创建](http://qiubaiying.top/2017/03/08/CocoaPods公有仓库的创建/)
+* [CocoaPods 私有仓库的创建（超详细）](https://www.jianshu.com/p/0c640821b36f)
+* [使用cocoapods打包静态库(依赖私有库，开源库，私有库又包含静态库)](https://www.jianshu.com/p/9096a2eb2804)

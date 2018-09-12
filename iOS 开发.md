@@ -284,6 +284,21 @@ echo "Bumped build number to $buildnum"
 
 ## Assets.xcassets 
 ### AppIcon 需提供矩形png格式,无alpha通道的图片
+
+#### 应用程序图标属性
+
+所有应用程序图标都应符合以下规范。
+
+| 属性 | 值 |
+| --- | --- |
+| 格式 | PNG |
+| 色彩空间 | sRGB或P3（参见[颜色管理](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/#color-management)） |
+| 图层 | 扁平化，没有透明度 |
+| 解析度 | 变化。请参见[图像大小和分辨率](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/) |
+| 形状 | 方形没有圆角  |
+
+#### 应用程序图标大小
+
 * iPhone Notification iOS 7-11 20pt
     * 2x：40px × 40px
     * 3x：60px × 60px
