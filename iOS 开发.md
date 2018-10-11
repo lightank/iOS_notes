@@ -235,7 +235,7 @@ echo "Bumped build number to $buildnum"
 | Device | 屏幕尺寸(inch) | 竖屏分辨率| PPI | Asset |
 | --- | --- | --- | --- | --- |
 | iPhone XS Max | 6.5 | 1242px × 2688px (414pt × 896pt @3x) | 458 | @3x |
-| iPhone XR | 6.1 | 828px × 1792px (375pt × 812pt @3x) | 325 | @2x |
+| iPhone XR | 6.1 | 828px × 1792px (414pt × 896pt @2x) | 325 | @2x |
 | iPhone X/XS | 5.8 | 1125px × 2436px (375pt × 812pt @3x) | 458 | @3x |
 | iPhone 6/6s/7/8 Plus | 5.5 | 1242px × 2208px (414pt × 736pt @3x) | 401 | @3x |
 | iPhone 6/6s/7/8 | 4.7 | 750px × 1334px (375pt × 667pt @2x) | 326 | @2x |
