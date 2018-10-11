@@ -234,7 +234,9 @@ echo "Bumped build number to $buildnum"
 
 | Device | 屏幕尺寸(inch) | 竖屏分辨率| PPI | Asset |
 | --- | --- | --- | --- | --- |
-| iPhone × | 5.8 | 1125px × 2436px (375pt × 812pt @3x) | 458 | @3x |
+| iPhone XS Max | 6.5 | 1242px × 2688px (414pt × 896pt @3x) | 458 | @3x |
+| iPhone XR | 6.1 | 828px × 1792px (375pt × 812pt @3x) | 325 | @2x |
+| iPhone X/XS | 5.8 | 1125px × 2436px (375pt × 812pt @3x) | 458 | @3x |
 | iPhone 6/6s/7/8 Plus | 5.5 | 1242px × 2208px (414pt × 736pt @3x) | 401 | @3x |
 | iPhone 6/6s/7/8 | 4.7 | 750px × 1334px (375pt × 667pt @2x) | 326 | @2x |
 | iPhone 5/5c/5s/SE | 4.0 | 640px × 1136px (320pt × 568pt @2x) | 326 | @2x |
@@ -299,16 +301,16 @@ echo "Bumped build number to $buildnum"
 
 #### 应用程序图标大小
 
-* iPhone Notification iOS 7-11 20pt
+* iPhone Notification iOS 7-12 20pt
     * 2x：40px × 40px
     * 3x：60px × 60px
-* iPhone Spotlight - iOS 5,6 Settings - iOS 5-11 29pt
+* iPhone Settings - iOS 7-12 29pt
     * 2x：58px × 58px
     * 3x：87px × 87px
-* iPhone Spotlight iOS 7-11 40pt
+* iPhone Spotlight iOS 7-12 40pt
     * 2x：80px × 80px
     * 3x：120px × 120px
-* iPhone App iOS 7-11 60pt
+* iPhone App iOS 7-12 60pt
     * 2x：120px × 120px
     * 3x：180px × 180px
 * App Store iOS 1024pt
@@ -325,8 +327,12 @@ echo "Bumped build number to $buildnum"
 
     
 ## LaunchImage 需提供矩形png格式,无alpha通道的图片
-* iPhone × Portrait iOS 11+
-    * iPhone X：1125px × 2436px
+
+* Portrait iOS 12+
+    * iPhone XS Max：1242px × 2688px
+    * iPhone XR：828px × 1792px
+* Portrait iOS 11+
+    * iPhone X/XS：1125px × 2436px
 * iPhone Portrait iOS 8+
     * Retina HD 5.5：1242px × 2208px
     * Retina HD 4.7：750px × 1334px
@@ -337,16 +343,20 @@ echo "Bumped build number to $buildnum"
     * 640px × 960px
     * 640px × 1136px
     * 750px × 1334px
+    * 828px × 1792px
     * 1125px × 2436px
     * 1242px × 2208px
+    * 1242px × 2688px
 
 
 # 参考链接
-* [Building Apps for iPhone X](https://developer.apple.com/videos/play/tech-talks/201/)
-* [Designing for iPhone X](https://developer.apple.com/videos/play/tech-talks/801/)
-* [App Icon](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/)
-* [Launch Screen](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/launch-screen/)
-* [iPhone X](https://developer.apple.com/design/human-interface-guidelines/ios/overview/iphone-x/)
+* [Building Apps for iPhone X](https://developer.apple.com/videos/play/tech-talks/201/) by Apple
+* [Designing for iPhone X](https://developer.apple.com/videos/play/tech-talks/801/) by Apple
+* [App Icon](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/) by Apple
+* [Launch Screen](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/launch-screen/) by Apple
+* [iPhone X](https://developer.apple.com/design/human-interface-guidelines/ios/overview/iphone-x/) by Apple
+* [Device Screen Sizes and resolutions](https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions)
+* [Device Screen Sizes and Orientations](https://kapeli.com/cheat_sheets/iOS_Design.docset/Contents/Resources/Documents/index)
 * [iOS设计尺寸规范](https://uiiiuiii.com/screen/ios.htm)
 * [iPhoneX 适配实践](https://cloud.tencent.com/developer/article/1006131)
 * [Xcode Build 打包自增脚本](https://www.jianshu.com/p/f0d51a1d5f6d)
