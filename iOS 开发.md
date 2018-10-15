@@ -348,6 +348,77 @@ echo "Bumped build number to $buildnum"
     * 1242px × 2208px
     * 1242px × 2688px
 
+# 图标、图片文件如何命名
+
+1. 命名的规则：
+
+    ```
+    图片使用的位置/模块(同一个页面的位置前缀应该是相同的) + 图片代表的意 + 状态(如果有多状态)
+    
+    如:
+    首页-侧栏-顶部logo则命名为
+    main_sidebar_logo
+    资讯-底部工具栏-推荐按钮
+    infomation_toolbar.recommend
+    资讯-底部工具栏-已经点赞
+    infomation_toolbar_support_selected
+    资讯-底部工具栏-没有点赞
+    infomation_toolbar.support_unselected
+    
+    PS:位置/模块的英文意思可以不是很准确，但是要保持翻译是相同的，不要多人给同一个模块名不同的英文单词
+    ```
+
+2. 命名都用小写，全英文，不能出现中文、大写、换行、特殊符号(除了下划线_以外的任何符号),多个单词用下划线"_"链接，如: 
+
+    ```
+    错误格式:
+    main toolbar takepictures unselected
+    错误格式:
+    main-toolbar-takepictures-unselected
+    正确格式:
+    main_toolbar_takepictures_unselected
+    ```
+    
+3. 2倍和3倍的图片都放在同一个文件夹内，命名如下：
+    
+    ```
+    main_ menu@2x. png
+    main_ menu@3x.png
+    ```
+
+4. 命名不要无意义的单词，意义模糊的名字可能会导致文件名冲突
+
+    常见的状态单词:
+    ```
+    选中 selected
+    未选中 unselected
+    左 left
+    右 right
+    高亮 highlighted
+    普通 normal
+    ```
+
+    状态单词应该放在末尾，例如:
+    ```
+    错误:main_toolbar_unselected_management
+    正确: main_toolbar_management_unselected
+    ```
+
+5. 控件名字规范
+
+    ```
+    导航栏:navbar
+    底部标签栏:tabbar
+    选项卡: tabs
+    分段器:segmentedcontrol
+    弹出框:popover
+    侧边栏:sidebar
+    按钮:button
+    图片添加: imagePicker
+    动作面板: actionSheet
+    弹窗:alerts
+    反馈提醒:toast
+    ```
 
 # 参考链接
 * [Building Apps for iPhone X](https://developer.apple.com/videos/play/tech-talks/201/) by Apple

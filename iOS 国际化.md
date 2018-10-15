@@ -68,6 +68,11 @@ Italiano | Italian | 意大利语 | it
 * 在`Localizable.strings(english)`中加入如下代码：`"click" = "hit";`
 * 在`Localizable.strings(Chinese(Simplified))`中加入如下代码：`"click" = "点击";`
 
+### 图片本地化
+
+* 新版Xcode中`*.xcassets`不支持国际化（属性页面中没有`Localization`），Xcode5以前是支持的
+* 需要国际化的图片放在自定义`Group`里，不需要的图片放在`*.xcassets`里
+
 ## 多人开发情况下的字符串本地化
 * 上面介绍的代码中字符串的本地化是使用的是默认的文件名`Localizable`,因为启动程序时，系统将根据语言加载相应的文件得到其对应的字符串文件，这个字符串可以通过系统将`NSLocalizedString`中的宏生成名为`Localizable.strings`的文件。那么如何让系统加载我们自己命名的本地化文件而非系统默认的`Localizable.strings`呢？这就是 `NSLocalizedStringFromTable(key, tbl, comment)`的用处。也就是说，如果你的`strings`文件名字不是`Localizable`而是自定义的话，如`VVS.strings`，那么你就得使用`NSLocalizedStringFromTable`这个宏来读取本地化字符串。
 
@@ -106,15 +111,19 @@ Italiano | Italian | 意大利语 | it
   "Main.Home" = "主页";
   "My.Home" = "我的主页";
   ```
+  
 * 使用 `NSLocalizedStringFromTable(key, tbl, comment)` 或 `NSLocalizedString(key, comment)` 做国际化的话，手机系统语言更改后，需将App Kill后，重新进入才有改变，这样不友好，建议使用 `Bundle` 资源读取方法
     
-    几个国际化的宏
+  几个国际化的宏
 
   ```
     #define kCurrentLanguage (((NSArray *)([[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"])).firstObject)
     #define LTLocalizedString(string) ([[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kCurrentLanguage ofType:@"lproj"]] localizedStringForKey:(string) value:@"" table:nil])
     #define LTLocalizedStringWithTable(string, table) ([[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kCurrentLanguage ofType:@"lproj"]] localizedStringForKey:(string) value:@"" table:table])
   ```
+
+* 设置运行语言环境：`Edite Scheme` -> `Run` -> `Options` -> `Application Language`
+
 
 # 参考链接
 * [3分钟实现iOS语言本地化/国际化（图文详解）](https://www.jianshu.com/p/88c1b65e3ddb)
