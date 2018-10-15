@@ -1,17 +1,16 @@
 # 诉求
 
 1. 构建不同的宏来方便切换相应的配置；
-2. 配置三种数据环境根据宏的切换进行切换；
-3. 三种图标/应用名称根据宏的切换进行切换显示；
-4. 至少两个类型的包能同时安装在手机上；
-5. 最好能使用脚本实现自动化打包放入bugly或者蒲公英等平台供内部测试人员下载；
+2. 配置不同环境的icon，网络环境，bundle identifier
+3. 至少两个类型的包能同时安装在手机上；
+4. 最好能使用脚本实现自动化打包放入bugly或者蒲公英等平台供内部测试人员下载；
 
 # 创建多个Configuration
 有两种方法可以用来创建我们需要新增的`Build Configuration`，这里新建一个名为`Sit`的配置项，是为了满足App的网络环境的切换。
 
-![]()
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/config%26target/menu_create_configuration.png)
 
-![]()
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/config%26target/create_configuration.png)
 
 # 环境的配置
 
@@ -19,9 +18,9 @@
 2. 然后`PROJECT` -> `Build Settings` -> `All` -> `Combined` -> search `Preprocessor Macros`，在`Sit`添加一个值为`SIT=1`
 3. 重复上述操作分别添加`Dev`,`Uat`
 
-![]()
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/config%26target/multiple_configuration.png)
 
-![]()
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/config%26target/preprocessor_macros.png)
 
 **提示：**如果在`TARGETS`中搜索的`Preprocessor Macros`,你会发现`Multiple values`中有一个值是`$(inherited)`,`TARGETS`中的值会继承自`PROJECT`
 
@@ -64,7 +63,7 @@
 
 在`Edit Scheme`中可以选择不同`Configuration`
 
-![]()
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/config%26target/choose_configuration.png)
 
 
 # Tips
@@ -76,11 +75,11 @@
 
 首先我们需要找UI设计师要三套不一样的图标，如下图这样取好对应的名称放入`*.xcassets`中：
 
-![]()
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/config%26target/multiple_icon.png)
 
 然后再当前`Target`的`Build Setting`下搜索icon找到`Asset Catalog App Icon Set Name`，然后进行如下配置：
 
-![]()
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/config%26target/set_configuration_icon.png)
 
 然后Edit Scheme选择相应的Configuration进行编译或者打包就能打出不同的图标了。
 
@@ -93,12 +92,12 @@
 配置不同的应用名称，这里需要使用到User-Defined加上info.plist来进行配置；
 首先，我们需要新增一个User-Defined，如下图：
 
-![方法一]()
-![方法二]()
+![方法一](https://github.com/lightank/iOS_notes/blob/master/Resource/config%26target/build_setting_set_app_name.png)
+![方法二](https://github.com/lightank/iOS_notes/blob/master/Resource/config%26target/menu_set_app_name.png)
 
 然后在`info.plist`中加入`Bundle display name`，设置成我们刚刚新建的`User-Defined`值：`$(APP_DISPLAY_NAME)`
 
-![方法二]()
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/config%26target/bundle_display_name.png)
 
 
 ## 配置不同Configuration下Target的`Bundle ldentifier`
@@ -107,7 +106,7 @@
 
 我们可以根据自己的需要设置各种scheme下的配置不同的Bundle ID，如下图：
 
-![]()
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/config%26target/target_congfig_bundle_identifier.png)
 
 正常情况下，以上步骤完成之后，如上图选择`Edit Scheme`切换`Build Configuration`就能编译出相应环境下的App，但是如果你的App使用pods来管理第三方库，使用新建的配置项就会报错找不到第三方的库文件，错误信息类似如下：
 
@@ -119,6 +118,9 @@ linker command failed with exit code 1 (use -V to see invocation)
 
 原因是`pods`工程并未自动帮我们创建相应的pod配置项，发现这一点之后我手动创建了一个同样名为`Preform`的`pod`配置项，于是编译通过了，但是打ipa包的时候始终通不过，继续查找原因，原来`xcconfig`文件需要终端执行`pod install`进行全面配置，所以大家在新建完了之后记得要`pod install`一下，才能放心使用。
 
+# 脚本打包
+
+* [CLI for Building & Distributing iOS Apps (.ipa Files)](https://github.com/nomad/shenzhen)
 
 # 参考链接
 
