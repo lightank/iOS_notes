@@ -107,3 +107,20 @@ plugins`，安装完进入`Create First Admin User`
  
  `系统管理` -> `Keychains and Provisioning Profiles Management`
  
+ 
+## 卸载Jenkins
+ 
+ 打开访达，按住`command + shift +g`输入`/Library/Application Support/Jenkins/Uninstall.command`,双击运行`Uninstall.command`
+ 
+ 或依次执行下面的命令
+ 
+ ```
+ sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+sudo rm !$
+sudo rm -rf /Applications/Jenkins "/Library/Application Support/Jenkins" /Library/Documentation/Jenkins
+sudo rm -rf /Users/Shared/Jenkins
+# if you want to get rid of all the jobs and builds:
+sudo dscl . -delete /Users/jenkins
+# delete the jenkins user and group (if you chose to use them):
+sudo dscl . -delete /Groups/jenkins
+ ```
