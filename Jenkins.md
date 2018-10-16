@@ -86,16 +86,22 @@ This may also be found at: /Users/huanyu.li/.jenkins/secrets/initialAdminPasswor
 http://localhost:8080
 ```
 
-![]()
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/Jenkins/jenkins_localhost.png)
 
 复制终端的密码，进入`Customize Jenkins`，选择`Install suggested
 plugins`，安装完进入`Create First Admin User`
 
-![]()
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/Jenkins/create_first_admin_user.png)
+
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/Jenkins/jenkins_is_ready.png)
+
+![](https://github.com/lightank/iOS_notes/blob/master/Resource/Jenkins/instance_configuration.png)
 
 安装插件，比如`GitLab Plugin`、`Xcode integration`、`Keychains and Provisioning Profiles Management`插件
  
- ![]()
+ ![](https://github.com/lightank/iOS_notes/blob/master/Resource/Jenkins/plugins.png)
+ 
+ ![](https://github.com/lightank/iOS_notes/blob/master/Resource/Jenkins/download_plugins.png)
  
  配置Keychains和Provisioning
  
