@@ -97,30 +97,50 @@ plugins`，安装完进入`Create First Admin User`
 
 ![](https://github.com/lightank/iOS_notes/blob/master/Resource/Jenkins/instance_configuration.png)
 
-安装插件，比如`GitLab Plugin`、`Xcode integration`、`Keychains and Provisioning Profiles Management`插件
+## 安装插件
+比如`GitLab Plugin`、`Xcode integration`、`Keychains and Provisioning Profiles Management`插件
+
+```
+常用插件如下：
+Git plugin
+Git client plugin
+Subversion Plug-in
+Subversion Release Manager plugin
+Subversion Tagging Plugin
+SVN Publisher plugin
+SSH Credentials Plugin
+Gradle plugin： Android
+Xcode integration：iOS
+Keychains and Provisioning Profiles Management：iOS/Mac OS
+```
  
  ![](https://github.com/lightank/iOS_notes/blob/master/Resource/Jenkins/plugins.png)
  
  ![](https://github.com/lightank/iOS_notes/blob/master/Resource/Jenkins/download_plugins.png)
- 
- 配置Keychains和Provisioning
+
+## 配置Keychains和Provisioning
  
  `系统管理` -> `Keychains and Provisioning Profiles Management`
  
+## 重置 Jenkins 新建的用户
+
+使用dmg包安装的Jenkins会默认新建一个叫`Jenkins`的用户，可以在偏好设置中的`用户与群组`，可重置密码，记得打开`允许用户管理这台电脑`
  
 ## 卸载Jenkins
  
- 打开访达，按住`command + shift +g`输入`/Library/Application Support/Jenkins/Uninstall.command`,双击运行`Uninstall.command`
- 
- 或依次执行下面的命令
- 
  ```
- sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
-sudo rm !$
-sudo rm -rf /Applications/Jenkins "/Library/Application Support/Jenkins" /Library/Documentation/Jenkins
-sudo rm -rf /Users/Shared/Jenkins
-# if you want to get rid of all the jobs and builds:
-sudo dscl . -delete /Users/jenkins
-# delete the jenkins user and group (if you chose to use them):
-sudo dscl . -delete /Groups/jenkins
+//进入以下目录，双击运行
+/Library/Application Support/Jenkins/Uninstall.command
+//也可以这样运行
+sh "/Library/Application Support/Jenkins/Uninstall.command"
+//删除配置，这个可选
+sudo rm -rf /var/root/.jenkins ~/.jenkinssudo launchctl 
+unload /Library/LaunchDaemons/org.jenkins-ci.plistsudo 
+rm /Library/LaunchDaemons/org.jenkins-ci.plistsudo 
+rm -rf /Applications/Jenkins "/Library/Application Support/Jenkins" /Library/Documentation/Jenkinssudo 
+rm -rf /Users/Shared/Jenkinssudo dscl . -delete /Users/jenkinssudo dscl . -delete /Groups/jenkinssudo 
+rm -f /etc/newsyslog.d/jenkins.confpkgutil --pkgs | grep 'org\.jenkins-ci\.' | xargs -n 1 sudo pkgutil --forget
+
+//如果使用brew安装的，可以执行以下命令
+brew uninstall jenkins
  ```

@@ -401,7 +401,7 @@ echo "Bumped build number to $buildnum"
     状态单词应该放在末尾，例如:
     ```
     错误:main_toolbar_unselected_management
-    正确: main_toolbar_management_unselected
+    正确:main_toolbar_management_unselected
     ```
 
 5. 控件名字规范

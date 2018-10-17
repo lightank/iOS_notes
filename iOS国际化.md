@@ -126,5 +126,7 @@ Italiano | Italian | 意大利语 | it
 
 
 # 参考链接
+* [Internationalization and Localization Guide](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LocalizingYourApp/LocalizingYourApp.html)
+* [App Icons on iPhone, iPad and Apple Watch](https://developer.apple.com/library/archive/qa/qa1686/_index.html)
 * [3分钟实现iOS语言本地化/国际化（图文详解）](https://www.jianshu.com/p/88c1b65e3ddb)
 * [NSLocalizedString 多语言本地化](https://swiftcafe.io/post/ios-localize)
