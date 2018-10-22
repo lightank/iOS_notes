@@ -1,6 +1,6 @@
 # Charles抓包
 
-[Charles 官网](https://www.charlesproxy.com),本文使用的是[`Charles v 4.2.6`, 资源来自网络](https://www.waitsun.com/charles-4-2-6.html)
+[Charles 官网](https://www.charlesproxy.com),本文使用的是[`Charles v 4.2.6`, 资源来自网络](https://www.waitsun.com/charles-4-2-6.html) [官网下载地址](https://link.jianshu.com/?t=https://www.charlesproxy.com/download/)
 
 ## `HTTPS`抓包设置
  1. `菜单栏` -> `Proxy` -> `SSL Proxying Settings` -> `SSL Proxying` -> 勾上`Enable SSL Proxying`, 添加`Host`:`*`, `Port`: `443`,443端口主要用于HTTPS服务
@@ -89,6 +89,27 @@
 2. 如果只想模拟指定网站的慢速网络，可以再勾选上图中的 `Only for selected hosts` 项，然后在对话框的下半部分设置中增加指定的 hosts 项即可。
 
 
+# Wireshark抓包
+
+[官网下载地址](https://www.wireshark.org/download.html)
+
+1. 官网下载Wireshark，用数据线将设备连上Mac笔记本，打开iTunes查看iOS设备UDID
+2. 打开终端，输入`rvictl -s 设备UDID`，开始抓包，如果成功，则提示
+
+    ```
+    Starting device 420f214d45a6884626250df2e1e60e5c4ed43333 [SUCCEEDED] with interface rvi0
+    ```
+    
+3. 打开Wireshark 设备连接后，mac会出现一个对应的虚拟网络接口，名字是rvi0（如果有多个iOS设备则累加，rvi1，rvi2…），双击rvi0即可开始抓包
+4. 终端输入`rvictl -x 设备UDID`，就可以断开连接，停止抓包，如果成功，则会提示
+
+    ```
+    Stopping device 420f214d45a6884626250df2e1e60e5c4ed43333 [SUCCEEDED]
+    ```
+
+
+
 ## 文章借鉴:
 
 1. [Charles 从入门到精通](http://blog.devtang.com/2015/11/14/charles-introduction/)
+2. [Mac下使用Wireshark抓iphone手机数据包](https://blog.csdn.net/yulianlin/article/details/79095413)
