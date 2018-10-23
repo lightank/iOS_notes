@@ -86,6 +86,52 @@ AppDelegate:
 
 (4)通过`[url scheme]`可以获取到请求的`URL Scheme`，比如是通过`universalApp://`打开的那么`[url scheme]`的值就是`universalApp`。可以通过不同的参数来判断来源的合法性
 
+## 弊端
+
+### Schema无法判断是否安装App
+一定会有这样的产品需求的：
+
+* 如果已经安装App，则打开App
+* 如果没有安装App，则前往下载App
+
+浏览器实际上是没有能力判断手机里是否安装了某个App的，，所以聪明的程序员们选择了讨巧的方法
+
+```js
+try {
+    var appSchema = 'schema://xxxx';
+    if ($.os.ios) {
+        location.href = openNALocation; //location.href 打开schema
+    }
+    else {
+        $('body').append('<iframe src="' + appSchema + '" style="display:none"></iframe>'); //iFrame 打开 schema
+    } 
+}catch (e) {}
+
+//延迟1000秒
+setTimeout(function () {
+    if ($.os.ios) {
+        location.href = `https://itunes.apple.com/us/app/idxxxxxxx?mt=8`;
+    }
+    else {
+        location.href = `https://xxx.xxx.xxx/xxx/xxx.apk`;//直接apk下载link
+    } 
+}，1000）
+```
+
+* 首先发起跳转Schema
+ * 如果没安装App，会打开App失败，没效果
+ * 如果安装App，会成功打开App
+* 延迟1000ms
+ * 如果没安装App，Schema打开失败，等1000秒后会自动跳转
+ * 如果安装App，App会打开，当前网页会被暂停，这延迟代码不会执行
+
+聪明的人会发现，这样有个风险，如果用户打开APP成功后，又手动切回浏览器，那么延迟1000ms的代码依然会执行，安卓会跳出下载apk包得提示，iOS会又再度跳到Appstore，但这个瑕疵也不是太大的问题，所以这种做法被普遍采用，运用在各种安装就跳转，不安装就下载的用户场景。
+
+
+
+# Universal Link
+
+
 
 
 
@@ -93,3 +139,7 @@ AppDelegate:
 
 # 参考链接
 * [iOS中的URL Scheme](https://blog.devzeng.com/blog/ios-url-scheme.html)
+* [Support Universal Links](https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html)
+* [Universal Link 前端部署采坑记](https://juejin.im/post/59aabe4c6fb9a0249471e04a)
+
+[知乎的 apple-app-association 文件]:https://link.juejin.im/?target=https%3A%2F%2Foia.zhihu.com%2Fapple-app-site-association
