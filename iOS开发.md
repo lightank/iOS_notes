@@ -228,6 +228,9 @@ buildnum=$(expr $buildnum + 1)
 echo "Bumped build number to $buildnum"
 ```
 
+# 工具
+
+* [Testflight.top](https://testflight.top) 简化Apple官方Testflight流程
 
 # iOS设计尺寸规范
 * [App Icon](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/)

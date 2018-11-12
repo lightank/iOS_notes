@@ -124,6 +124,33 @@ Italiano | Italian | 意大利语 | it
 
 * 设置运行语言环境：`Edite Scheme` -> `Run` -> `Options` -> `Application Language`
 
+* 对不同Target区分编程
+
+    ```
+    #if TargetA
+    
+    #elif TargetB   //可能有可以没有
+    
+    #endif
+    ```
+
+## 坑
+
+* 简体中文环境下，模拟器取出当前语言为`zh-Hans`, 真机是`zh-Hans-CN`(前面是语言，后面是区域),而Xcode建的文件夹是`zh-Hans.lproj`,在真机运行下，直接根据当前语言去找`*.lproj`文件夹的话找不着，如果有富文本的话，会崩溃;英文同理；解决方案：
+    * 取当前语言前缀，如果符合
+    
+    ```
+    NSString *currentlprojName = ([self additionalLprojFileNameDictionary])[[self currentLanguage]];
+    
+    if ([currentlprojName hasPrefix:@"zh-"])
+    {
+        currentlprojName = @"zh-Hans";
+    }
+    else if ([currentlprojName hasPrefix:@"en-"])
+    {
+        currentlprojName = @"en";
+    }
+    ```
 
 # 参考链接
 * [Internationalization and Localization Guide](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LocalizingYourApp/LocalizingYourApp.html)
