@@ -133,6 +133,9 @@ Italiano | Italian | 意大利语 | it
     
     #endif
     ```
+* 修改默认开发语言(Xcode默认开发语言是en英语)
+    1. `Show in Finder` 工程文件 –> 显示包内容 –> 用文本打开`project.pbxproj` –> 搜索`developmentRegion` –> 将值改为`zh-Hans`
+
 
 ## 坑
 
