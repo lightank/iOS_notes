@@ -1,0 +1,107 @@
+1.执行pod命令和更新build次数:
+cd /Users/weixinyang/.jenkins/workspace/kyExpress_Internal测试/;
+/usr/local/bin/pod install --repo-update;
+#################auto change buildNumber####################
+/usr/bin/xcrun agvtool new-version -all $BUILD_NUMBER;
+
+2.更改证书配置1:
+filepath=/Users/weixinyang/.jenkins/workspace/kyExpress_Internal测试/kyExpress_Internal.xcodeproj/project.pbxproj
+functhParam(){
+orgin=$(grep -i -n $1 $filepath | head -n 1 | awk -F ':' '{print $1}')
+count=$(grep -i -A 200 $1 $filepath | grep -i -n 'PROVISIONING_PROFILE' | head -n 1 |awk -F ':' '{print $1}')
+let line=$orgin+count-1
+echo $line
+sed -i '' $line"s/^.*/$2/g" $filepath
+}
+
+functhParam "^.*3670F35B1C857926003E4FC1.*=" '				PROVISIONING_PROFILE = "2316eb2d-856f-466c-b43f-543b018e4e0d";'
+
+3.更改证书配置2:
+filepath=/Users/weixinyang/.jenkins/workspace/kyExpress_Internal测试/kyExpress_Internal.xcodeproj/project.pbxproj
+functhParam(){
+orgin=$(grep -i -n $1 $filepath | head -n 1 | awk -F ':' '{print $1}')
+count=$(grep -i -A 200 $1 $filepath | grep -i -n 'CODE_SIGN_IDENTITY' | head -n 1 |awk -F ':' '{print $1}')
+let line=$orgin+count-1
+echo $line
+sed -i '' $line"s/^.*/$2/g" $filepath
+}
+
+functhParam "^.*3670F35B1C857926003E4FC1.*=" '				CODE_SIGN_IDENTITY = "iPhone Distribution: SHENZHEN SPAN LOGISTICS LIMITED IEAP";'
+
+4.更改证书配置3:
+filepath=/Users/weixinyang/.jenkins/workspace/kyExpress_Internal测试/kyExpress_Internal.xcodeproj/project.pbxproj
+functhParam(){
+orgin=$(grep -i -n $1 $filepath | head -n 1 | awk -F ':' '{print $1}')
+count=$(grep -i -A 200 $1 $filepath | grep -i -n 'CODE_SIGN_IDENTITY\[sdk' | head -n 1 |awk -F ':' '{print $1}')
+let line=$orgin+count-1
+echo $line
+sed -i '' $line"s/^.*/$2/g" $filepath
+}
+
+functhParam "^.*3670F35B1C857926003E4FC1.*=" '				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";'
+
+5.更改证书配置4:
+filepath=/Users/weixinyang/.jenkins/workspace/kyExpress_Internal测试/kyExpress_Internal.xcodeproj/project.pbxproj
+functhParam(){
+orgin=$(grep -i -n $1 $filepath | head -n 1 | awk -F ':' '{print $1}')
+count=$(grep -i -A 200 $1 $filepath | grep -i -n 'PROVISIONING_PROFILE_SPECIFIER' | head -n 1 |awk -F ':' '{print $1}')
+let line=$orgin+count-1
+echo $line
+sed -i '' $line"s/^.*/$2/g" $filepath
+}
+
+functhParam "^.*3670F35B1C857926003E4FC1.*=" '				PROVISIONING_PROFILE_SPECIFIER = "0713DistributionProfile";'
+修改编码方式,不知道有啥用:
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+#上面命令指定编码方式,如果不指定,执行 fastlane beta 会报错
+bundle update
+#更新timeout
+export FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT=120
+fastlane beta
+
+6.构建后操作,上次蒲公英之类:
+MSG=`git log -10 --date=iso --pretty='%B - %cn - %cd'`
+PASSWORD=1212
+curl -F "file=@/Users/weixinyang/.jenkins/workspace/kyExpress_Internal测试/build/kyExpress_Internal_Debug.ipa" -F "uKey=4e529ed494c714fe872c913473c66207" -F "_api_key=18c52304d08644d57b6d3ed329dcc4ff" -F "updateDescription=${MSG}" -F "password=${PASSWORD}" https://qiniu-storage.pgyer.com/apiv1/app/upload
+
+
+message="%%e6%b5%8b%e8%af%95%e7%89%88%e6%9c%ac%e6%9e%84%e5%bb%ba%e6%88%90%e5%8a%9f%2c%e8%af%b7%e5%89%8d%e5%be%80%e4%b8%8b%e8%bd%bdhttps%3a%2f%2fwww.pgyer.com%2fKXJu"
+curl -d "uid=649209281&content=${message}" "http://119.29.167.122:5000/openqq/send_group_message" | iconv -f utf-8 -t utf-8
+
+function encodeurl()  
+{
+    encoded_str=`echo "$*" | awk 'BEGIN {
+        split ("1 2 3 4 5 6 7 8 9 A B C D E F", hextab, " ")
+        hextab [0] = 0
+        for (i=1; i<=255; ++i) {
+            ord [ sprintf ("%c", i) "" ] = i + 0
+        }
+    }
+    {
+        encoded = ""
+        for (i=1; i<=length($0); ++i) {
+            c = substr ($0, i, 1)
+            if ( c ~ /[a-zA-Z0-9.-]/ ) {
+                encoded = encoded c             # safe character
+            } else if ( c == " " ) {
+                encoded = encoded "+"   # special handling
+            } else {
+                # unsafe character, encode it as a two-digit hex-number
+                lo = ord [c] % 16
+                hi = int (ord [c] / 16);
+                encoded = encoded "%" hextab [hi] hextab [lo]
+            }
+        }
+        print encoded
+    }' 2>/dev/null`
+}
+
+GITMSG=`git log -2 --date=iso --pretty='%B - %cn - %cd'`
+encodeurl ${GITMSG}  
+p=$encoded_str
+
+curl -d "uid=649209281&content=%e6%b5%8b%e8%af%95%e5%8c%85%e6%9c%80%e8%bf%91%e4%b8%a4%e6%ac%a1%e6%9b%b4%e6%96%b0%3a${p}" "http://119.29.167.122:5000/openqq/send_group_message" | iconv -f utf-8 -t utf-8
+
+

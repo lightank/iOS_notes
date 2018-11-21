@@ -42,7 +42,7 @@ Italiano | Italian | 意大利语 | it
 ## 应用名称本地化/国际化
 * 选中`Info.plist`, 按下键盘上的`command + N`，选择`Strings File`（`iOS` -> `Resource`-> `Strings File`）
 * 文件名字命名为`InfoPlist`, 且必须是这个名字,点击create后, Xcode左侧导航列表就会出现名为`InfoPlist.strings`的文件
-
+* Tips：即使有多个`Target`、`*.plist`文件，系统也只认`InfoPlist.strings`的文件
     
 ## 代码中字符串的本地化
 * 选中`Info.plist`, 按下键盘上的`command + N`，选择`Strings File`（`iOS` -> `Resource`-> `Strings File`）
@@ -140,20 +140,18 @@ Italiano | Italian | 意大利语 | it
 ## 坑
 
 * 简体中文环境下，模拟器取出当前语言为`zh-Hans`, 真机是`zh-Hans-CN`(前面是语言，后面是区域),而Xcode建的文件夹是`zh-Hans.lproj`,在真机运行下，直接根据当前语言去找`*.lproj`文件夹的话找不着，如果有富文本的话，会崩溃;英文同理；解决方案：
-    * 取当前语言前缀，如果符合
     
     ```
-    NSString *currentlprojName = ([self additionalLprojFileNameDictionary])[[self currentLanguage]];
-    
-    if ([currentlprojName hasPrefix:@"zh-"])
+    // 取当前语言前缀
+    + (NSString *)currentlprojName
     {
-        currentlprojName = @"zh-Hans";
-    }
-    else if ([currentlprojName hasPrefix:@"en-"])
-    {
-        currentlprojName = @"en";
+        NSString *prefix = [[self currentLanguage] componentsSeparatedByString:@"-"].firstObject;
+        NSString *currentlprojName = [self lprojFileNameDictionary][prefix];
+        return currentlprojName;
     }
     ```
+* 多Target下的`Info.plist`国际化
+    * 不同Target可能有不同的`*.plist`,但在国际化时，系统只认`InfoPlist.strings`的国际化
 
 # 参考链接
 * [Internationalization and Localization Guide](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LocalizingYourApp/LocalizingYourApp.html)
