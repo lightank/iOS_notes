@@ -21,6 +21,7 @@
 * [iOS安全系列之一：HTTPS](http://oncenote.com/2014/10/21/Security-1-HTTPS/)
 * [iOS安全系列之二：HTTPS进阶](http://oncenote.com/2015/09/16/Security-2-HTTPS2/)
 * [移动 APP 网络优化概述](http://blog.cnbang.net/tech/3531/)
+* [RESTful API 最佳实践](http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html)
 
 ## 加密
 * [iOS中使用RSA加密](https://www.jianshu.com/p/74a796ec5038)
