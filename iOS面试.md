@@ -6,7 +6,9 @@
 * [深入理解RunLoop](https://blog.ibireme.com/2015/05/18/runloop/)
 * [关于ios开源框架源代码解析的文章](https://github.com/Draveness/analyze)
 * [YYCache 设计思路](https://blog.ibireme.com/2015/10/26/yycache/)
-
+* [iOS设计模式探索(大话设计模式)](https://github.com/huang303513/Design-Pattern-For-iOS)
+* [iOS响应链(Responder Chain)](https://www.jianshu.com/p/4155c9ffe1a8)
+* [OC 代码块block](https://www.cnblogs.com/naray/p/4703698.html)
 
 ## 多线程
 * [iOS 多线程：『GCD』详尽总结](https://bujige.net/blog/iOS-Complete-learning-GCD.html)
