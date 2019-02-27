@@ -9,6 +9,7 @@
 * [iOS设计模式探索(大话设计模式)](https://github.com/huang303513/Design-Pattern-For-iOS)
 * [iOS响应链(Responder Chain)](https://www.jianshu.com/p/4155c9ffe1a8)
 * [OC 代码块block](https://www.cnblogs.com/naray/p/4703698.html)
+* [RuntimePDF](https://github.com/DeveloperErenLiu/RuntimePDF)
 
 ## 多线程
 * [iOS 多线程：『GCD』详尽总结](https://bujige.net/blog/iOS-Complete-learning-GCD.html)
