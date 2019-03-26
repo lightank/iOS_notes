@@ -182,7 +182,32 @@ Failed during: git init -q
     * 使用Carthage
         1. 先进入到项目所在文件夹`$ cd 项目路径`
         2. 创建一个空的Carthage文件`$ touch Cartfile`
-        3. 编辑cartfile文件，添加依赖框架`github "ibireme/YYKit"`
+        3. 编辑cartfile文件，添加依赖框架`github "ibireme/YYKit"`,Cartfile示例
+            ```
+            # Require version 2.3.1 or later 最低2.3.1版本
+            github "ReactiveCocoa/ReactiveCocoa" >= 2.3.1
+            
+            # Require version 1.x   必须1.x版本
+            github "Mantle/Mantle" ~> 1.0    # (大于或等于 1.0 ，小于 2.0)
+            
+            # Require exactly version 0.4.1 必须0.4.1版本
+            github "jspahrsummers/libextobjc" == 0.4.1
+            
+            # Use the latest version  使用最新版本
+            github "jspahrsummers/xcconfigs"
+            
+            # Use the branch  使用git分支
+            github "jspahrsummers/xcconfigs" "branch"
+            
+            # Use a project from GitHub Enterprise  使用一个企业项目，在 "development" 分支
+            github "https://enterprise.local/ghe/desktop/git-error-translations"
+            
+            # Use a project from any arbitrary server, on the "development" branch  使用一个私有项目，在 "development" 分支
+            git "https://enterprise.local/desktop/git-error-translations2.git" "development"
+            
+            # Use a local project   使用一个本地的项目
+            git "file:///directory/to/project" "branch"
+            ```
         4. 保存并关闭cartfile文件，进行安装`$ Carthage update --platform iOS`/`$ carthage update --no-use-binaries --platform ios`
         5. 打开Carthage 查看生产的文件目录:`$ open Carthage`
 
