@@ -178,6 +178,7 @@ Failed during: git init -q
         * Homebrew帮助信息：`$ brew -h`
         * 安装carthage：`$ brew install carthage`
         * 查看carthage版本：`$ Carthage version`
+        * 更新carthage版本：`$ brew upgrade carthage`
         * 卸载Carthage：`$ brew uninstall Carthage`
     * 使用Carthage
         1. 先进入到项目所在文件夹`$ cd 项目路径`
