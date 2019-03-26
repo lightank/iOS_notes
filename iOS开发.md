@@ -148,6 +148,24 @@ echo "Bumped build number to $buildnum"
 
 * [Testflight.top](https://testflight.top) 简化Apple官方Testflight流程
 
+# Tips
+* pch文件配置：target→build setting→搜索prefix header添加路径：$(SRCROOT)/项目名称/pch文件名.pch
+* 项目迁移，由于最近有个项目由cocoapods管理变成拖源码管理，建议如下
+    * 如果是GitHub三方库，查看是否支持carthage，如果支持，先用carthage生成framework库
+    * 建议用一个header把所有三方库都拉进去
+    * 右键Info.plist，右键source code打开复制粘贴内容
+    * 修改build system，xcode 10后默认为new build system，修改为legacy build system
+    * 在Assets.xcassets中添加appicon，launchimage，并在target→general→deployment info→main interface删除Main,这样就不会从main.storyboard中启动；target→general→app icon and launch image→launch image source 选择launchimage
+    * 添加依赖库，target→general→linked frameworks and libraries→+添加依赖库，比如libc++.tbd
+    * 修改build settings，打开build settings：target→build settings
+        * 关闭bitcode，搜索 enable bitcode，修改值为NO
+        * 添加编译选项，搜索 enable bitcodeOther linker flags添加-ObjC、-all_load、-l"c++"（如果有c++）、$(inherited)
+    * 修改build phases，打开build phases：target→build phases
+        * 添加使用MRC的编译参数-fno-objc-arc，搜索compile sources→双击需要添加的文件，添加-fno-objc-arc
+    * 修改general，打开general：target→general
+        * 修改最低支持版本，在deployment info中修改最低版本，横竖屏，是否隐藏状态栏
+    
+
 # iOS设计尺寸规范
 * [App Icon](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/)
 * [Launch Screen](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/launch-screen/)
