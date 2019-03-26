@@ -164,7 +164,27 @@ echo "Bumped build number to $buildnum"
         * 添加使用MRC的编译参数-fno-objc-arc，搜索compile sources→双击需要添加的文件，添加-fno-objc-arc
     * 修改general，打开general：target→general
         * 修改最低支持版本，在deployment info中修改最低版本，横竖屏，是否隐藏状态栏
-    
+* carthage基本使用
+    * 安装Carthage:
+        * 安装homebrew:`$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+            * Mac OS X 10.11系统以后，/usr/local/等系统目录下的文件读写是需要系统root权限的，以往的Homebrew安装如果没有指定安装路径，会默认安装在这些需要系统root用户读写权限的目录下，如果报错
+             ```
+             fatal: cannot copy '/Applications/Xcode.app/Contents/Developer/usr/share/git-core/templates/hooks/fsmonitor-watchman.sample' to '/usr/local/Homebrew/.git/hooks/fsmonitor-watchman.sample': Permission denied
+Failed during: git init -q
+             ```
+             对/usr/local 目录下的文件读写进行root用户授权，执行`sudo chown -R $(whoami) /usr/local`
+        * 升级brew：`brew update`
+        * 查看Homebrew版本：`$ brew -v`
+        * Homebrew帮助信息：`$ brew -h`
+        * 安装carthage：`$ brew install carthage`
+        * 查看carthage版本：`$ Carthage version`
+        * 卸载Carthage：`$ brew uninstall Carthage`
+    * 使用Carthage
+        1. 先进入到项目所在文件夹`$ cd 项目路径`
+        2. 创建一个空的Carthage文件`$ touch Cartfile`
+        3. 编辑cartfile文件，添加依赖框架`github "ibireme/YYKit"`
+        4. 保存并关闭cartfile文件，进行安装`$ Carthage update --platform iOS`/`$ carthage update --no-use-binaries --platform ios`
+        5. 打开Carthage 查看生产的文件目录:`$ open Carthage`
 
 # iOS设计尺寸规范
 * [App Icon](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/)
