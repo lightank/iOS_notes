@@ -168,10 +168,12 @@ echo "Bumped build number to $buildnum"
     * 安装Carthage:
         * 安装homebrew:`$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
             * Mac OS X 10.11系统以后，/usr/local/等系统目录下的文件读写是需要系统root权限的，以往的Homebrew安装如果没有指定安装路径，会默认安装在这些需要系统root用户读写权限的目录下，如果报错
+            
              ```
              fatal: cannot copy '/Applications/Xcode.app/Contents/Developer/usr/share/git-core/templates/hooks/fsmonitor-watchman.sample' to '/usr/local/Homebrew/.git/hooks/fsmonitor-watchman.sample': Permission denied
-Failed during: git init -q
+             Failed during: git init -q
              ```
+             
              对/usr/local 目录下的文件读写进行root用户授权，执行`sudo chown -R $(whoami) /usr/local`
         * 升级brew：`brew update`
         * 查看Homebrew版本：`$ brew -v`
