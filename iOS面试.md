@@ -30,6 +30,8 @@
 * [iOS中使用RSA加密](https://www.jianshu.com/p/74a796ec5038)
 * [AES加密 - iOS与Java的同步实现](https://welkinx.com/2016/07/30/10/)
 
+## 富文本
+* [CoreText --->NSAttributedString入门教程](https://www.jianshu.com/p/46d377ca2dfb)
 
 ## 架构
 * [iOS应用架构谈](https://casatwy.com/iosying-yong-jia-gou-tan-kai-pian.html)

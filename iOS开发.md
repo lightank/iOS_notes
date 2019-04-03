@@ -212,6 +212,8 @@ echo "Bumped build number to $buildnum"
             git "file:///directory/to/project" "branch"
             ```
         4. 保存并关闭cartfile文件，进行安装`$ Carthage update --platform iOS`/`$ carthage update --no-use-binaries --platform ios`
+            > 报错 `xcrun: error: unable to find utility "xcodebuild", not a developer tool or in PATH`
+            > 打开xcode → Preferences → Locations → Selected the Command Lin Tools: (选择xcode版本)
         5. 打开Carthage 查看生产的文件目录:`$ open Carthage`
 
 # iOS设计尺寸规范
