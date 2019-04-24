@@ -1,3 +1,6 @@
+# iPhone 获取 .ips 文件
+设置 → 隐私 → 分析 → 分析数据 → 选择 *.ips 文件 → 右上角分享
+
 # iOS .ips(crash)崩溃报告文件分析
 1. 在桌面新建一个文件夹，名字叫`crash`
 2. 将`.ips`文件更名为`.crash`文件并放到`crash`文件夹中
@@ -28,3 +31,50 @@
     ```
     重复上述操作步骤
     
+# 查看UUID
+每一个 xx.app 和 xx.app.dSYM 文件都有对应的 UUID，crash 文件也有自己的 UUID，只要这三个文件的 UUID 一致，我们就可以通过他们解析出正确的错误函数信息了
+## DSYM
+
+终端执行
+
+```
+$ dwarfdump --uuid AppName.app.dSYM(这里是dsym文件的路径)
+```
+
+结果如下:
+
+```
+UUID: F73FXXXX-XXXX-XXXX-XXXX-0F7BB758XXXX (armv7) XXXXX
+UUID: 371FXXXX-XXXX-XXXX-XXXX-61AB3F0CXXXX (arm64) XXXXX
+```
+
+## .app
+
+终端执行
+
+```
+$ dwarfdump --uuid AppName.app/AppName (这里是dsym文件的路径 后面需要拼接AppName)
+```
+
+结果如下:
+
+```
+UUID: F73FXXXX-XXXX-XXXX-XXXX-0F7BB758XXXX (armv7) XXXXX
+UUID: 371FXXXX-XXXX-XXXX-XXXX-61AB3F0CXXXX (arm64) XXXXX
+```
+
+## .crash
+
+终端执行
+
+```
+$ grep "AppName arm64" *.crash(这里是crash文件路径)
+```
+
+结果如下:
+
+```
+0x1048dc000 - 0x10534bfff AppName arm64  <371fxxxxxxxxxxxxxxxx61ab3f0cxxxx>
+```
+
+同时也可以打开crash文件，第一行的中的`slice_uuid`内容`"slice_uuid":"371fxxxxxxxxxxxxxxxx61ab3f0cxxxx",`
