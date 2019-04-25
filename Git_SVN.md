@@ -25,4 +25,12 @@ Could not contact repository to read the latest log entries.
 应用程序 → Cornerstone.app → 右键显示包内容 → Contents → 打开Info.plist → 复制 Bundle identifier 的值，比如 com.zennaware.cornerstone3 → Quit Cornerstone(退出cornerStone) → Open Terminal(打开终端) → 输入以下文字
 $: defaults delete com.zennaware.cornerstone3 HistoryCacheUsage
 注意中间的值请改成对应的info.plist中的值
+
+重启Cornerstone → 点击 log 弹出警告框
+
+Do you want to download and cache the repository's history?
+
+Never For This Repository     Not Now     Download
+
+切记一定要选择Not Now,不要默认选择的Download
 ```
