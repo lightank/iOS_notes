@@ -204,10 +204,8 @@ $ pod spec lint LTPrivacyPermission.podspec --verbose
 如果出现如下错误提示
 
 ```ruby
-...
 Analyzed 1 podspec.
 [!] The spec did not pass validation, due to 1 warning (but you can use `--allow-warnings` to ignore it) and all results apply only to public specs, but you can use `--private` to ignore them if linting the specification for a private pod.
-...
 ```
 
 使用下列命令来消除警告
@@ -215,6 +213,13 @@ Analyzed 1 podspec.
 ```ruby
 $ pod lib lint --allow-warnings
 ```
+
+出现以下错误
+
+```ruby
+xcrun: error: unable to find utility "simctl", not a developer tool or in PATH
+```
+去XCode设置里面，将Command line Tools设置一下，在Xcode>preferences>Locations里面，设置之后再运行终端即可
 
 如果最后出现如下提示，则表示这个库通过了验证
 
