@@ -252,12 +252,12 @@ echo "Bumped build number to $buildnum"
     * 如果是GitHub三方库，查看是否支持carthage，如果支持，先用carthage生成framework库
     * 建议用一个header把所有三方库都拉进去
     * 右键Info.plist，右键source code打开复制粘贴内容
-    * 修改build system，xcode 10后默认为new build system，修改为legacy build system
+    * 修改build system，打开工程 File > Project Settings进入工程设置即可可视化配置当前的Build System，xcode 10后默认为new build system，修改为legacy build system
     * 在Assets.xcassets中添加appicon，launchimage，并在target→general→deployment info→main interface删除Main,这样就不会从main.storyboard中启动；target→general→app icon and launch image→launch image source 选择launchimage
     * 添加依赖库，target→general→linked frameworks and libraries→+添加依赖库，比如libc++.tbd
     * 修改build settings，打开build settings：target→build settings
         * 关闭bitcode，搜索 enable bitcode，修改值为NO
-        * 添加编译选项，搜索 enable bitcodeOther linker flags添加-ObjC、-all_load、-l"c++"（如果有c++）、$(inherited)
+        * 添加编译选项，搜索 Other linker flags添加-ObjC、-all_load、-l"c++"（如果有c++）、$(inherited)
     * 修改build phases，打开build phases：target→build phases
         * 添加使用MRC的编译参数-fno-objc-arc，搜索compile sources→双击需要添加的文件，添加-fno-objc-arc
     * 修改general，打开general：target→general
