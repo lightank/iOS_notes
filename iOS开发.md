@@ -426,6 +426,10 @@ echo "Bumped build number to $buildnum"
 * iPhone Portrait iOS 7+
     * 2x：640px × 960px
     * Retina 4：640px × 1136px
+* iPhone Portrait iOS 5,6
+    * 1x：320px × 480px (这个基本上不需要了)
+    * 2x：640px × 960px
+    * Retina 4：640px × 1136px
 * 总结：
     * 640px × 960px
     * 640px × 1136px
