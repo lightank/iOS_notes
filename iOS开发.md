@@ -522,5 +522,6 @@ echo "Bumped build number to $buildnum"
 * [iOS设计尺寸规范](https://uiiiuiii.com/screen/ios.htm)
 * [iPhoneX 适配实践](https://cloud.tencent.com/developer/article/1006131)
 * [Xcode Build 打包自增脚本](https://www.jianshu.com/p/f0d51a1d5f6d)
+* [Can I Jailbreak?](https://canijailbreak.com)
 * [App Store](https://developer.apple.com/support/app-store/) Apple 官方iOS各系统版本占比
 * [iOS Version Stats](https://david-smith.org/iosversionstats/) iOS各系统版本占比
