@@ -64,6 +64,8 @@
     * [ObjC](https://www.objc.io)
 * [NSHipster](https://nshipster.cn) 关注被忽略的 Objective-C、Swift 和 Cocoa
 * [iOS开发指南:最全的iOS零基础开发教程](https://www.developboot.com)
+* [腾讯开源 官网](https://opensource.tencent.com) [GitHub](https://github.com/Tencent)
+* [阿里 GitHub](https://github.com/alibaba)
 
 
 # 书籍
