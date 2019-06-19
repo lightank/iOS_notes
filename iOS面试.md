@@ -174,6 +174,7 @@ TODO：
 ##### 瘦身
 * [LSUnusedResources](https://github.com/tinymind/LSUnusedResources)
 * [LinkMap](https://github.com/huanxsd/LinkMap)
+* [FengNiao](https://github.com/onevcat/FengNiao) by [onevcat](https://github.com/onevcat)
 
 #### APM
 * [iOS-System-Services](https://github.com/iOS-APM/iOS-System-Services)
