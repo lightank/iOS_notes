@@ -30,6 +30,7 @@
 * [iOS安全系列之二：HTTPS进阶](http://oncenote.com/2015/09/16/Security-2-HTTPS2/)
 * [移动 APP 网络优化概述](http://blog.cnbang.net/tech/3531/)
 * [RESTful API 最佳实践](http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html)
+* [Cookie，Session，Token那些事](https://mp.weixin.qq.com/s/kLj772UC0lUpQIwV9JEV4Q)
 
 ## 加密
 * [iOS中使用RSA加密](https://www.jianshu.com/p/74a796ec5038)
@@ -41,6 +42,7 @@
 ## 架构
 * [iOS应用架构谈](https://casatwy.com/iosying-yong-jia-gou-tan-kai-pian.html)
 * [支付宝客户端架构解析：iOS 容器化框架初探](https://juejin.im/post/5bdc19cbf265da614b117217)
+* [解读 iOS 组件化与路由的本质](https://mp.weixin.qq.com/s/i1e6slYejKk-Djx0wopuUg)
 
 ## [iOS-Performance-Optimization]
 关于iOS 性能优化梳理：
