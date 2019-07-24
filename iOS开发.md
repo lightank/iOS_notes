@@ -158,6 +158,7 @@ echo "Bumped build number to $buildnum"
 # 工具
 
 * [Testflight.top](https://testflight.top) 简化Apple官方Testflight流程
+* [Lookin](https://lookin.work/) 免费好用的 iOS UI 调试软件
 
 # Tips
 * pch文件配置：target→build setting→搜索prefix header添加路径：$(SRCROOT)/项目名称/pch文件名.pch
