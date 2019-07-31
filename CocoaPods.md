@@ -1,3 +1,32 @@
+# CocoaPods
+
+`pod install` 如果报错
+```
+error: RPC failed; curl 18 transfer closed with outstanding read data remaining
+fatal: the remote end hung up unexpectedly
+fatal: early EOF
+```
+错误原因分析
+
+git 有两种拉代码的方式，一个是 HTTP，另一个是 ssh。git 的 HTTP 底层是通过 curl 的。HTTP 底层基于 TCP，而 TCP 协议的实现是有缓冲区的。
+所以这个报错大致意思就是说，连接已经关闭，但是此时有未处理完的数据。
+解决方案
+
+增大缓冲区大小。
+切到 git 项目目录后，执行如下命令：
+
+```
+// 524288000 的单位代表 B，524288000B 也就是 500MB。
+// 这个值的大小，可自行酌情设置
+git config --global http.postBuffer 524288000
+```
+然后查看是否设置成功：
+
+```
+git config –list | grep postbuffer
+```
+
+
 # CocoaPods创建库
 
 * [CocoaPods Guides](https://guides.cocoapods.org)
