@@ -66,6 +66,7 @@
 * [iOS开发指南:最全的iOS零基础开发教程](https://www.developboot.com)
 * [腾讯开源 官网](https://opensource.tencent.com) [GitHub](https://github.com/Tencent)
 * [阿里 GitHub](https://github.com/alibaba)
+* [知识小集 官网](https://awesome-tips.github.io) 
 
 
 # 书籍
