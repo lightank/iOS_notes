@@ -1,6 +1,6 @@
 # CocoaPods
 
-`pod install` 如果报错
+## `pod install` 报错: RPC failed;
 ```
 error: RPC failed; curl 18 transfer closed with outstanding read data remaining
 fatal: the remote end hung up unexpectedly
@@ -26,6 +26,22 @@ git config --global http.postBuffer 524288000
 git config –list | grep postbuffer
 ```
 
+## 运行报错：报错: Unable to load contents of file list
+
+```
+Unable to load contents of file list: 'xxxx/ProjectName/Pods/Target Support Files/Pods-ProjectName/Pods-ProjectName-frameworks-Debug-output-files.xcfilelist' (in target 'ProjectName')
+```
+
+这是由于cocoapods版本不符，建议升级到最新版本
+
+```
+sudo gem install cocoapods --pre
+
+如果报错：You don't have write permissions for the /usr/bin directory.
+
+执行此命令即可：
+sudo gem install cocoapods -n /usr/local/bin
+```
 
 # CocoaPods创建库
 
