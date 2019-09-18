@@ -83,6 +83,7 @@
 * [蘑菇街 App 的稳定性与性能实践](http://www.infoq.com/cn/presentations/stability-and-performance-of-mogujie-app)[PPT](https://sanwen8.cn/p/6e5c888.html)
 * [⼿淘iOS性能优化探索](http://pstatic.geekbang.org/pdf/593a53d813cef.pdf?e=1497499485&token=eHNJKRTldoRsUX0uCP9M3icEhpbyh3VF9Nrk5UPM:sa-xp_aIeIhtiWbqR-hY4ImMzFc=)
 * [iOS App 稳定性指标及监测](https://juejin.im/post/58ca0832a22b9d006418fe43)
+* [移动端组件化架构](https://github.com/DeveloperErenLiu/ComponentArchitecturePDF)
 
 #### 内存优化
 * [Memory Usage Performance Guidelines](https://developer.apple.com/library/content/documentation/Performance/Conceptual/ManagingMemory/ManagingMemory.html#//apple_ref/doc/uid/10000160i) 
@@ -97,9 +98,11 @@
 * [UIKit性能调优实战讲解](http://www.cocoachina.com/ios/20160208/15238.html?utm_source=tuicool&utm_medium=referral)
 * [QQ空间掉帧率优化实战](http://wetest.qq.com/lab/view/354.html)
 * [实现 60fps 的网易云音乐首页](https://mp.weixin.qq.com/s?__biz=MzA4MzEwOTkyMQ==&mid=2667379069&idx=1&sn=376d9ef2261cf13e930406f1c35d3569) 
+* [iOS实时卡顿监控](http://www.tanhao.me/code/151113.html/)
 * [iOS 保持界面流畅的技巧](http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/)
 * [iOS UI性能优化总结](http://www.cocoachina.com/ios/20180412/22990.html)
 * [微信iOS卡顿监控系统](http://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ%3D%3D&idx=1&mid=207890859&scene=23&sn=e98dd604cdb854e7a5808d2072c29162&srcid=0921FzoCw9j1W7n4uFYKuarC#rd)
+* [微信读书 iOS 质量保证及性能监控](https://wereadteam.github.io/2016/12/12/Monitor/) 
 * [iOS-卡顿检测](http://www.cnblogs.com/gatsbywang/p/5555200.html)
 * [iOS监控：卡顿检测](http://ios.jobbole.com/93085/)
 * [iOS应用UI线程卡顿监控](https://mp.weixin.qq.com/s?__biz=MzI5MjEzNzA1MA==&mid=2650264136&idx=1&sn=052c1db8131d4bed8458b98e1ec0d5b0&chksm=f406837dc3710a6b49e76ce3639f671373b553e8a91b544e82bb8747e9adc7985fea1093a394#rd)
