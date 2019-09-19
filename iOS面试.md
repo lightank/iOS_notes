@@ -18,7 +18,6 @@
 * [iOS自动打包并发布脚本](http://liumh.com/2015/11/25/ios-auto-archive-ipa/)
 * [支付宝介入文档及业务流程](https://docs.open.alipay.com/204/105297/)
 * [微信业务流程](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_3)
-* [iOS设计模式探索(大话设计模式)](https://github.com/huang303513/Design-Pattern-For-iOS)
 
 ## 多线程
 * [iOS 多线程：『GCD』详尽总结](https://bujige.net/blog/iOS-Complete-learning-GCD.html)
