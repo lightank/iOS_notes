@@ -18,6 +18,7 @@
 * [iOS自动打包并发布脚本](http://liumh.com/2015/11/25/ios-auto-archive-ipa/)
 * [支付宝介入文档及业务流程](https://docs.open.alipay.com/204/105297/)
 * [微信业务流程](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_3)
+* [汇编语言入门教程](http://www.ruanyifeng.com/blog/2018/01/assembly-language-primer.html)
 
 ## 多线程
 * [iOS 多线程：『GCD』详尽总结](https://bujige.net/blog/iOS-Complete-learning-GCD.html)
@@ -117,7 +118,6 @@ TODO：
 * [教你开发省电的 iOS app（WWDC17 观后）](http://www.jianshu.com/p/f0dc653d04ca)
 * [浅析移动蜂窝网络的特点及其省电方案](https://juejin.im/post/5a0c5af051882578da0d6925)
 * [iOS电量测试实践](https://mp.weixin.qq.com/s/q39BHIWsbdNeqfH85EOkIQ)
-* [iOS进阶--App功耗优化看这篇就够了](http://www.cocoachina.com/ios/20171204/21413.html)
 
 #### 启动优化
 * [WWDC2016-406-Optimizing App Startup Time](https://developer.apple.com/videos/play/wwdc2016/406)
