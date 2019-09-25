@@ -18,13 +18,22 @@
 * [iOS自动打包并发布脚本](http://liumh.com/2015/11/25/ios-auto-archive-ipa/)
 * [支付宝介入文档及业务流程](https://docs.open.alipay.com/204/105297/)
 * [微信业务流程](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_3)
+* [深入解构objc_msgSend函数的实现](https://www.jianshu.com/p/df6629ec9a25)
 * [汇编语言入门教程](http://www.ruanyifeng.com/blog/2018/01/assembly-language-primer.html)
+* [[iOS] OC中的锁](https://www.jianshu.com/p/b22bf3b4ee8a)
 
 ## 多线程
 * [iOS 多线程：『GCD』详尽总结](https://bujige.net/blog/iOS-Complete-learning-GCD.html)
 * [iOS多线程『pthread、NSThread』详尽总结](https://www.bujige.net/blog/iOS-Complete-learning-pthread-and-NSThread.html)
 * [iOS多线程：『NSOperation、NSOperationQueue』详尽总结](https://www.bujige.net/blog/iOS-Complete-learning-NSOperation.html)
 
+## Mach-O
+* [iOS程序员的自我修养-前言（零）](https://juejin.im/post/5d527302f265da039d32c246)
+    * [iOS程序员的自我修养-编译、链接过程（一）](https://juejin.im/post/5d5273b1f265da03f233c2d6)
+    * [iOS程序员的自我修养-MachO文件结构分析（二）](https://juejin.im/post/5d5275b251882505417927b5)
+    * [iOS程序员的自我修养-MachO文件静态链接（三）](https://juejin.im/post/5d527867f265da03ed1946d2)
+    * [iOS程序员的自我修养-MachO文件动态链接（四）](https://juejin.im/post/5d5bbc426fb9a06ad3472cee)
+    * [iOS程序员的自我修养-fishhook原理（五）](iOS程序员的自我修养-fishhook原理（五）)
 
 ## 网络
 * [iOS安全系列之一：HTTPS](http://oncenote.com/2014/10/21/Security-1-HTTPS/)
@@ -96,6 +105,7 @@
 * [OOM探究：XNU 内存状态管理](https://www.jianshu.com/p/4458700a8ba8)
 
 #### 卡顿优化
+* [监控所有的OC方法耗时](https://juejin.im/post/5d146490f265da1bc37f2065) 成品：[TimeProfiler](https://github.com/maniackk/TimeProfiler)
 * [UIKit性能调优实战讲解](http://www.cocoachina.com/ios/20160208/15238.html?utm_source=tuicool&utm_medium=referral)
 * [QQ空间掉帧率优化实战](http://wetest.qq.com/lab/view/354.html)
 * [实现 60fps 的网易云音乐首页](https://mp.weixin.qq.com/s?__biz=MzA4MzEwOTkyMQ==&mid=2667379069&idx=1&sn=376d9ef2261cf13e930406f1c35d3569) 
