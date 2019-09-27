@@ -440,3 +440,4 @@ echo "Bumped build number to $buildnum"
 * [Can I Jailbreak?](https://canijailbreak.com)
 * [App Store](https://developer.apple.com/support/app-store/) Apple 官方iOS各系统版本占比
 * [iOS Version Stats](https://david-smith.org/iosversionstats/) iOS各系统版本占比
+* [IPSW](https://ipsw.me)
