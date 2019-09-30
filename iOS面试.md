@@ -1,3 +1,11 @@
+# 面试问题
+
+* 电话邀请面试：
+    * 能简单介绍一下贵公司吗？（主要了解公司主营业务、现状）
+    * 贵公司双休吗？（个人不喜欢太累，基本不考虑非双休的工作）
+    * 
+* [面试官：你还有什么要问我的？](https://github.com/yifeikong/reverse-interview-zh)
+
 # 面试/技术文章：
 * [招聘一个靠谱的 iOS](http://blog.sunnyxx.com/2015/07/04/ios-interview/) 
     * [《招聘一个靠谱的 iOS》—参考答案（上）](https://github.com/ChenYilong/iOSInterviewQuestions/blob/master/01《招聘一个靠谱的iOS》面试题参考答案/《招聘一个靠谱的iOS》面试题参考答案（上）.md)
