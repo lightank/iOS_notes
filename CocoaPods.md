@@ -1,4 +1,6 @@
-# CocoaPods
+# CocoaPods 
+
+[RubyGems - Ruby China](https://gems.ruby-china.com)
 
 ## `pod install` 报错: RPC failed;
 ```

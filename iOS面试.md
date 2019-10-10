@@ -1,10 +1,17 @@
 # 面试问题
 
 * 电话邀请面试：
-    * 能简单介绍一下贵公司吗？（主要了解公司主营业务、现状）
+    * 能简单介绍一下贵公司吗？（主要了解公司主营业务、团队现状）
     * 贵公司双休吗？（个人不喜欢太累，基本不考虑非双休的工作）
-    * 
+	
+    
 * [面试官：你还有什么要问我的？](https://github.com/yifeikong/reverse-interview-zh)
+	* 有五险一金或者其他退休养老金等福利吗？如果有的话，公司有配套的商业保险吗？
+	* 我的日常工作是什么？
+	* 我入职的岗位是新增还是接替之前离职的同事？(是否有技术债需要还)？
+	* 如果遇到不同的意见怎样处理？
+	* 你们现在盈利吗？
+	* 你们认为什么是你们的竞争优势？
 
 # 面试/技术文章：
 * [招聘一个靠谱的 iOS](http://blog.sunnyxx.com/2015/07/04/ios-interview/) 
@@ -17,7 +24,6 @@
 * [iOS设计模式探索(大话设计模式)](https://github.com/huang303513/Design-Pattern-For-iOS)
 * [iOS响应链(Responder Chain)](https://www.jianshu.com/p/4155c9ffe1a8)
 * [OC 代码块block](https://www.cnblogs.com/naray/p/4703698.html)
-* [RuntimePDF](https://github.com/DeveloperErenLiu/RuntimePDF)
 * [iOS开发中的Web应用概述](https://dequan1331.github.io/web-in-ios.html)
 * [从webview到flutter：详解iOS中的Web开发](https://mp.weixin.qq.com/s/OlZ78ldlpdQeuV7r_4b_yQ)
 * [web性能优化](https://developer.yahoo.com/performance/rules.html?guce_referrer=aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA2NDg1NTUvYXJ0aWNsZS9kZXRhaWxzLzUwNzIxNzUx&guce_referrer_sig=AQAAALFDmgeec4o4M3qDGMF4pJ7mfwbrvNzWRSoHOuVgUBMqfpOi8fCJWX9_zYqnLeQlvhGa39OdzymsPP-4C5wB0XqzU7oux3SZqBfbgoNOrf_ScV24a05ZfBxcwZ7oQaG8nrdgAAjNCKhFRAwQu18yQdsMJuY1M_CReqF8_dbbZJlV&guccounter=2)
@@ -29,6 +35,10 @@
 * [深入解构objc_msgSend函数的实现](https://www.jianshu.com/p/df6629ec9a25)
 * [汇编语言入门教程](http://www.ruanyifeng.com/blog/2018/01/assembly-language-primer.html)
 * [[iOS] OC中的锁](https://www.jianshu.com/p/b22bf3b4ee8a)
+
+## runtime
+* [RuntimePDF](https://github.com/DeveloperErenLiu/RuntimePDF)
+* [iOS 开发：『Runtime』详解（三）Category 底层原理](https://bujige.net/blog/iOS-Runtime-03.html)
 
 ## 多线程
 * [iOS 多线程：『GCD』详尽总结](https://bujige.net/blog/iOS-Complete-learning-GCD.html)
