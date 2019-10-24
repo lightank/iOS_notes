@@ -1,5 +1,77 @@
 # Git
 
+## ssh
+1. 首先运行terminal检查是否已经有SSH Key
+
+	```
+	cd ~/.ssh		// 进入ssh目录,如果不能进入该目录，说明没生成过
+	ls		// 查看ssh文件夹内容,如果ssh文件夹中有id_rsa、id_rsa.pub文件，说明之前生成过ssh秘钥，可以直接使用，跳过步骤2，直接进入步骤3
+
+	git config --list    // 检查下是否配置过git账户
+	```
+	
+2. 创建一个SSH key
+
+	```
+	ssh-keygen -t rsa -C "your_email@example.com"
+	```
+	接着又会提示你输入两次密码（该密码是你push文件的时候要输入的密码，而不是github管理者的密码），
+
+	当然，你也可以不输入密码，直接按回车。那么push的时候就不需要输入密码，直接提交到github上了，如：
+	
+	```
+	Enter passphrase (empty for no passphrase): 
+	# Enter same passphrase again:
+	```
+	
+	当你看到下面这段代码，那就说明，你的 SSH key 已经创建成功，你只需要添加到github的SSH key上就可以了：
+	
+	```
+	our identification has been saved in /c/Users/you/.ssh/id_rsa.
+	# Your public key has been saved in /c/Users/you/.ssh/id_rsa.pub.
+	# The key fingerprint is:
+	# 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com
+	```
+	
+3. 添加公钥到你的远程仓库（github）
+	
+	```
+	// 查看你生成的公钥，或者执行 pbcopy < ~/.ssh/id_rsa.pub 直接复制内容到粘贴板
+	cat ~/.ssh/id_rsa.pub
+	
+	// 把terminal上显示的内容copy出来
+	ssh-rsa ******************省略一堆字串*********************************** your_email@example.com
+	
+	// 登陆你的github帐户。点击你的头像，然后 Settings -> 左栏点击 SSH and GPG keys -> 点击 New SSH key
+	// 然后你复制上面的公钥内容，粘贴进“Key”文本域内。 title域，自己随便起个名字。
+	// 点击 Add key
+	
+	//完成以后，验证下这个key是不是正常工作，输入：
+	ssh -T git@github.com
+	
+	如果第二步输入了密码就会让输入密码：
+	Enter passphrase for key '/Users/shutong/.ssh/id_rsa':
+	
+	如果，看到：
+	Hi shu-tong! You've successfully authenticated, but GitHub does not provide shell access.
+
+	成功.
+	```
+	
+	
+3. 重新配置
+	
+	```
+	1.配置账户
+	git config --global user.name "your account name"     ->用户名，建议拼音或英文
+	git config --global user.email "your account email"     ->邮箱地址
+	
+	2.生成秘钥 
+	ssh-keygen -t rsa -C "your_email@example.com"         ->上面的邮箱地址
+	```
+
+
+
 ## Tips
 ### `.gitignore`中增加了过滤规则但是不起作用
 是由于在创建`.gitignore`文件或添加一些过滤规则之前就track了相应的内容，那么即使在`.gitignore`文件中写入新的过滤规则，这些规则也不会起作用，Git仍然会对这些文件进行版本管理。简单来说出现这种问题的原因就是Git已经开始管理这些文件了，所以你无法再通过过滤规则过滤它们。 
