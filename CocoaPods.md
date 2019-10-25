@@ -2,6 +2,15 @@
 
 [RubyGems - Ruby China](https://gems.ruby-china.com)
 
+## `pod setup` 失败
+
+pod setup的本质就是将https://github.com/CocoaPods/Specs上的Specs项目clone到/Users/用户名/.cocoapods/repos目录下。若此目录下已有Specs项目，则会将项目更新到最新的状态。由于Specs很大，容易导致pod setup失败。
+
+1. 使用 Git 客户端，比如 SourceTree, 然后 clone Specs:<https://github.com/CocoaPods/Specs> 项目。
+2. 将 clone 的 Specs 项目的文件夹改名为 `master`，然后拖到 `~/.cocoapods/repos/` 目录下。
+3. 运行 `pod setup`
+
+
 ## `pod install` 报错: RPC failed;
 ```
 error: RPC failed; curl 18 transfer closed with outstanding read data remaining
