@@ -50,6 +50,7 @@
 * [微信业务流程](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_3)
 * [汇编语言入门教程](http://www.ruanyifeng.com/blog/2018/01/assembly-language-primer.html)
 * [[iOS] OC中的锁](https://www.jianshu.com/p/b22bf3b4ee8a)
+* [TableView性能优化](http://blog.wangruofeng007.com/blog/2016/01/18/tableviewxing-neng-you-hua/)
 
 ## runtime
 * [RuntimePDF](https://github.com/DeveloperErenLiu/RuntimePDF)
