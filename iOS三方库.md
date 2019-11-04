@@ -25,6 +25,7 @@
 * [Reachability](https://github.com/tonymillion/Reachability) 网络状态、监听
 * [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket) 封装最完善的Socket类库
 * [RxAlamofire](https://github.com/RxSwiftCommunity/RxAlamofire) 封装Alamofire
+* [PPSPing](https://github.com/yangqian111/PPSPing) iOS端的一个ping网络工具
 
 ## UI
 * [CYLTabBarController](https://github.com/ChenYilong/CYLTabBarController) 低耦合集成TabBarController

@@ -130,6 +130,24 @@ sourceTree项目的GIT密码始终保存不到Mac的钥匙串中,明明在钥匙
 `git clone git@gitcafe.com/username/newproject.git`
 这种方式可以保留原版本库中的所有内容。
 
+
+## [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+命令行：
+
+```
+// 查看当前分支情况
+$:gst
+效果为显示分支信息：
+位于分支 huanyu/feature-xxx
+您的分支与上游分支 'origin/huanyu/feature-xxx' 一致
+
+// 合并分支到当前分支
+$:gm origin/teamwork/feature-xxx
+效果：合并 origin/teamwork/feature-xxx 分支到 huanyu/feature-xxx 分支
+
+```
+
 # SVN
 
 针对Cornerstone 3的 log 报错
