@@ -199,6 +199,7 @@ echo "Bumped build number to $buildnum"
         1. 先进入到项目所在文件夹`$ cd 项目路径`
         2. 创建一个空的Carthage文件`$ touch Cartfile`
         3. 编辑cartfile文件，添加依赖框架`github "ibireme/YYKit"`,Cartfile示例
+        
             ```
             # Require version 2.3.1 or later 最低2.3.1版本
             github "ReactiveCocoa/ReactiveCocoa" >= 2.3.1
