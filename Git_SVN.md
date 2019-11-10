@@ -133,6 +133,8 @@ sourceTree项目的GIT密码始终保存不到Mac的钥匙串中,明明在钥匙
 
 ## [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
+自动补全：[autojump](https://github.com/wting/autojump)
+
 命令行：
 
 ```
@@ -145,6 +147,9 @@ $:gst
 // 合并分支到当前分支
 $:gm origin/teamwork/feature-xxx
 效果：合并 origin/teamwork/feature-xxx 分支到 huanyu/feature-xxx 分支
+
+// git push 推送当前分支到远端
+& gp
 
 ```
 

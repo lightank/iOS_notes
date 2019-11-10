@@ -442,3 +442,5 @@ echo "Bumped build number to $buildnum"
 * [App Store](https://developer.apple.com/support/app-store/) Apple 官方iOS各系统版本占比
 * [iOS Version Stats](https://david-smith.org/iosversionstats/) iOS各系统版本占比
 * [IPSW](https://ipsw.me)
+
+打开任意来源：`sudo spctl --master-disable`
