@@ -237,15 +237,15 @@ echo "Bumped build number to $buildnum"
 
 | Device | 屏幕尺寸(inch) | 竖屏分辨率| PPI | Asset |
 | --- | --- | --- | --- | --- |
-| iPhone XS Max | 6.5 | 1242px × 2688px (414pt × 896pt @3x) | 458 | @3x |
-| iPhone XR | 6.1 | 828px × 1792px (414pt × 896pt @2x) | 325 | @2x |
-| iPhone X/XS | 5.8 | 1125px × 2436px (375pt × 812pt @3x) | 458 | @3x |
+| iPhone XS Max/11 Pro Max | 6.5 | 1242px × 2688px (414pt × 896pt @3x) | 458 | @3x |
+| iPhone XR/11 | 6.1 | 828px × 1792px (414pt × 896pt @2x) | 325 | @2x |
+| iPhone X/XS/11 Pro | 5.8 | 1125px × 2436px (375pt × 812pt @3x) | 458 | @3x |
 | iPhone 6/6s/7/8 Plus | 5.5 | 1242px × 2208px (414pt × 736pt @3x) | 401 | @3x |
 | iPhone 6/6s/7/8 | 4.7 | 750px × 1334px (375pt × 667pt @2x) | 326 | @2x |
 | iPhone 5/5c/5s/SE | 4.0 | 640px × 1136px (320pt × 568pt @2x) | 326 | @2x |
 | iPhone 4/4S | 3.5 | 640px × 960px (320pt × 480pt @2x ) | 326 | @2x |
 | iPhone 1/3G/3GS | 3.5 | 320px × 480px (320pt × 480pt @1x) | 163 | @1x |
-| iPad Pro 12.9 | 12.9 | 2048px × 2732px (1024pt × 1366 @2x) | 264 | @2x |
+| iPad Pro 12.9 | 12.9 | 2048px × 2732px (1024pt × 1366pt @2x) | 264 | @2x |
 | iPad Pro 10.5 | 10.5 | 1668px × 2224px (834pt × 1112pt @2x) | 264 | @2x |
 | iPad Pro/Air 2/Retina iPad | 9.7 | 1536px × 2048px (768pt × 1024pt @2x) | 264 | @2x |
 | iPad mini 2/4 | 7.9 | 1536px × 2048px (768pt × 1024pt @2x) | 326 | @2x |
@@ -347,13 +347,13 @@ echo "Bumped build number to $buildnum"
     * 2x：640px × 960px
     * Retina 4：640px × 1136px
 * 总结：
-    * 640px × 960px
-    * 640px × 1136px
-    * 750px × 1334px
-    * 828px × 1792px
-    * 1125px × 2436px
-    * 1242px × 2208px
-    * 1242px × 2688px
+    * 640px × 960px (3.5 inch @2x)
+    * 640px × 1136px (4.0 inch @2x)
+    * 750px × 1334px (4.7 inch @2x)
+    * 828px × 1792px (6.1 inch @2x)
+    * 1125px × 2436px (5.8 inch @3x)
+    * 1242px × 2208px (5.5 inch @3x)
+    * 1242px × 2688px (6.5 inch @3x)
 
 # 图标、图片文件如何命名
 

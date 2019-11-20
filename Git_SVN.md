@@ -1,5 +1,13 @@
 # Git
 
+## 命令行
+
+	
+```
+// 刷新本地origin缓存
+$:git remote prune origin
+```
+
 ## ssh
 1. 首先运行terminal检查是否已经有SSH Key
 
