@@ -97,6 +97,20 @@
     Password:
     xxx:Xcode.app xxx$ 
     ```
+    
+ * macOS Catalina 10.15 报“已损坏，无法打开”解决办法
+ 
+ 	1. 打开任意来源：打开终端，在终端运行以下指令（需要输入密码）：`sudo spctl --master-disable`
+ 	2. 如需关闭任意来源：打开终端，在终端运行以下指令（需要输入密码）：`sudo spctl --master-enable`
+ 	3. 终端输入以下命令（将xxxx替换为App名字）
+ 		
+ 		```
+ 		// 实质是删除扩展属性中的“下载”，这样Mac就不会将这个软件视为从网上down下来的
+		sudo xattr -d com.apple.quarantine /Applications/xxxx.app
+ 		```
+ 		回车后，输入Mac锁屏密码，回车确认即可。
+
+
 
 # 脚本
 ## Xcode Build 打包自增脚本
@@ -160,6 +174,7 @@ echo "Bumped build number to $buildnum"
 
 * [Testflight.top](https://testflight.top) 简化Apple官方Testflight流程
 * [Lookin](https://lookin.work/) 免费好用的 iOS UI 调试软件
+*   tree：安装 `brew install tree`,打印到markdown：`tree  >README.md`
 
 # Tips
 * pch文件配置：target→build setting→搜索prefix header添加路径：$(SRCROOT)/项目名称/pch文件名.pch
