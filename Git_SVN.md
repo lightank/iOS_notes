@@ -1,11 +1,26 @@
 # Git
 
+
 ## 命令行
 
 	
 ```
 // 刷新本地origin缓存
 $:git remote prune origin
+
+// 设置代理
+我使用Shadowsocks代理，默认代理端口为1080，配置好代理之后去终端输入git配置命令，命令如下
+
+git config --global http.proxy socks5://127.0.0.1:1080
+
+上面的命令是给git设置全局代理，但是我们并不希望国内git库也走代理，而是只需要github上的代码库走代理，命令如下
+
+git config --global http.https://github.com.proxy socks5://127.0.0.1:1080
+
+ps：如果要恢复/移除上面设置的git代理，使用如下命令
+
+git config --global --unset http.proxy
+git config --global --unset http.https://github.com.proxy
 ```
 
 ## ssh
